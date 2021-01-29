@@ -16,3 +16,16 @@
 
 ## articles table
 
+| Column   | Type       | Options                      |
+|----------|------------|------------------------------|
+| title    | string     | null: false                  |
+| text     | text       | null: false                  |
+| setting  | boolean    | null: false                  |
+| price    | integer    |                              |
+| user     | references |null: false, foreign_key: true|
+
+### Association
+
+- belongs_to :user
+- has_many :buys
+- has_many :comments
