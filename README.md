@@ -55,3 +55,19 @@
 - belongs_to :user
 - belongs_to :article
 - has_one :address
+
+## addresses table
+
+| Column          | Type       | Options                        |
+|-----------------|------------|--------------------------------|
+| f_name          | string     | null: false                    |
+| l_name          | string     | null: false                    |
+| f_name_kana     | string     | null: false                    |
+| l_name_kana     | string     | null: false                    |
+| postalcode      | string     | null: false                    |
+| prefecture_id   | string     | null: false                    |active_hash
+| city            | string     | null: false                    |
+| building_number | string     | null: false                    |
+| building        | string     | null: false                    |
+| phone_number    | string     | null: false                    |
+| buy             | references | null: false, foreign_key: true | 
