@@ -42,3 +42,16 @@
 
 - belongs_to :user
 - belongs_to :article
+
+## buys table
+
+| Column  | Type       | Options                        |
+|---------|------------|--------------------------------|
+| user    | references | null: false, foreign_key: true | 購入者
+| artice  | references | null: false, foreign_key: true | 購入した記事
+
+### Association
+
+- belongs_to :user
+- belongs_to :article
+- has_one :address
