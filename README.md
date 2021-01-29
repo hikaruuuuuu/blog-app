@@ -20,7 +20,7 @@
 |----------|------------|--------------------------------|
 | title    | string     | null: false                    |
 | text     | text       | null: false                    |
-| setting  | boolean    | null: false                    |
+| setting  | integer    | null: false                    |
 | price    | integer    |                                |
 | user     | references | null: false, foreign_key: true |
 
@@ -65,9 +65,9 @@
 | f_name_kana     | string     | null: false                    |
 | l_name_kana     | string     | null: false                    |
 | postalcode      | string     | null: false                    |
-| prefecture_id   | string     | null: false                    |active_hash
+| prefecture_id   | integer    | null: false                    |active_hash
 | city            | string     | null: false                    |
 | building_number | string     | null: false                    |
-| building        | string     | null: false                    |
+| building        | string     |                                |
 | phone_number    | string     | null: false                    |
 | buy             | references | null: false, foreign_key: true | 
