@@ -16,13 +16,13 @@
 
 ## articles table
 
-| Column   | Type       | Options                        |
-|----------|------------|--------------------------------|
-| title    | string     | null: false                    |
-| text     | text       | null: false                    |
-| setting  | integer    | null: false                    |
-| price    | integer    |                                |
-| user     | references | null: false, foreign_key: true |
+| Column      | Type       | Options                        |
+|-------------|------------|--------------------------------|
+| title       | string     | null: false                    |
+| text        | text       | null: false                    |
+| buy_setting | boolean    | null: false                    |
+| price       | integer    |                                |
+| user        | references | null: false, foreign_key: true |
 
 ### Association
 
