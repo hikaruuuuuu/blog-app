@@ -3,35 +3,37 @@
   <section class="form-container">
     <div class="form-container__titleGroup">
       <div class="form-container__accountHave">
-        <a href="/users/sign_in">
+        <%= link_to new_user_session_path, class: "a-btn header-content__btnLink header-content__btnLink--login" do %>
           <span class="form-container__anotherHaveText">アカウントお持ちの方はこちら</span>
+        <% end %>
         </a>
       </div>
       <h2 class="form-container__title">新規登録</h2>
     </div>
-    <form class="register-form">
+    <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), class: "register-form", local: true do |f|%>
+      <%= render 'shared/error_messages', model: f.object %>
       <div class="register-form-content register-form-content--articleFormCotent">
         <div class="register-form-group">
           <span class="register-form-group__require">必須</span>
-          <input name="hoge" type="text" class="register-form-group__textField register-form-group__textField--nickname", placeholder="ニックネーム">
+          <%= f.text_area :nickname, class: "register-form-group__textField register-form-group__textField--nickname", placeholder:"ニックネーム", autofocus: true %>
         </div>
         <div class="register-form-group">
           <span class="register-form-group__require">必須</span>
-          <input name="hoge" type="email" class= "register-form-group__textField register-form-group__textField--email", placeholder= "メールアドレス">
+          <%= f.email_field :email, class: "register-form-group__textField register-form-group__textField--email", placeholder: "メールアドレス", autofocus: true %>
         </div>
         <div class="register-form-group">
           <span class="register-form-group__require">必須</span>
-          <input name="hoge" type="password" class= "register-form-group__textField register-form-group__textField--password", placeholder= "パスワード（7 ~ 128文字以内の半角英数混合で入力してください">
+          <%= f.password_field :password, class: "register-form-group__textField register-form-group__textField--password", placeholder: "パスワード（7 ~ 128文字以内の半角英数混合で入力してください)", autofocus: true %>
         </div>
         <div class="register-form-group">
           <span class="register-form-group__require">必須</span>
-          <input name="hoge" type="password" class= "register-form-group__textField register-form-group__textField--password_confirmation", placeholder= "パスワード【確認用】">
+          <%= f.password_field :password_confirmation, class: "register-form-group__textField register-form-group__textField--password_confirmation", placeholder: "パスワード【確認用】", autofocus: true %>
         </div>
         <div class="register-form-submit">
-          <input type="submit" value="登録する", class="register-form-submit__btn a-btn a-btn--primary">
+          <%= f.submit "登録する" ,class:"register-form-submit__btn a-btn a-btn--primary" %>
         </div>
       </div>
-    </form>
+    <% end %>
     <div class="register-form-social">
       <h4 class="register-form-social__title">SNSアカウントで登録</h4>
       <div class="register-form-social__btns">
