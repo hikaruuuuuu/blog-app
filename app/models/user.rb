@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname
-    validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])\w{7,128}\z/, message: "は、7 ~ 128文字以内の半角英数混合で入力してください" }
+    validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])\w{7,128}\z/, message: "は、7 ~ 128文字以内の半角英数混合で入力してください" }
   end
 end
