@@ -10,11 +10,10 @@
       <h2 class="form-container__title">ログイン</h2>
     </div>
     <%= form_with model: resource, as: resource_name, url: session_path(resource_name), cladd: "register-form", local: true do |f|%>
-      <%= render 'shared/error_messages', model: f.object %>
-        <div class='login-flash-message'>
-    <%= flash[:notice] %>
-    <%= flash[:alert] %>
-  </div>
+      <div class='error-alert error-alert__message'>
+        <%= flash[:notice] %>
+        <%= flash[:alert] %>
+      </div> 
       <div class="register-form-content">
         <div class="register-form-group">
           <span class="register-form-group__require">必須</span>
