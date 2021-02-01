@@ -20,6 +20,9 @@
   align-items: center;
   justify-content: center;
   padding-top: 40px;
+  &__body {
+    width: 50vw;
+  }
 }
 
 .article-list-item {
