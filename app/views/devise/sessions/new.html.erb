@@ -9,21 +9,26 @@
       </div>
       <h2 class="form-container__title">ログイン</h2>
     </div>
-    <form class="register-form">
+    <%= form_with model: resource, as: resource_name, url: session_path(resource_name), cladd: "register-form", local: true do |f|%>
+      <%= render 'shared/error_messages', model: f.object %>
+        <div class='login-flash-message'>
+    <%= flash[:notice] %>
+    <%= flash[:alert] %>
+  </div>
       <div class="register-form-content">
         <div class="register-form-group">
           <span class="register-form-group__require">必須</span>
-          <input name="email" type="email" class= "register-form-group__textField register-form-group__textField--email", placeholder= "メールアドレス">
+          <%= f.email_field :email, class: "register-form-group__textField register-form-group__textField--email", placeholder:"メールアドレス", autofocus: true %>
         </div>
         <div class="register-form-group">
           <span class="register-form-group__require">必須</span>
-          <input name="password" type="password" class= "register-form-group__textField register-form-group__textField--password", placeholder= "パスワード（6 ~ 128文字以内の半角英数混合で入力してください">
+          <%= f.password_field :password, class: "register-form-group__textField register-form-group__textField--password", placeholder:"パスワード（7 ~ 128文字以内の半角英数混合で入力してください" %>
         </div>
         <div class="register-form-submit">
-          <input type="submit" value="ログイン" class="register-form-submit__btn a-btn a-btn--primary">
+          <%= f.submit "ログイン" ,class: "register-form-submit__btn a-btn a-btn--primary" %>
         </div>
       </div>
-    </form>
+    <% end %>
     <div class="register-form-social">
       <h4 class="register-form-social__title">SNSアカウントでログイン</h4>
       <div class="register-form-social__btns">
