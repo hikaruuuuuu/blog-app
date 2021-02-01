@@ -3,9 +3,9 @@
   <section class="form-container">
     <div class="form-container__titleGroup">
       <div class="form-container__accountHave">
-        <a href="/users/sign_up">
+        <%= link_to new_user_registration_path do %>
           <span class="form-container__anotherHaveText">アカウントお持ち出ない方はこちら</span>
-        </a>
+        <% end %>
       </div>
       <h2 class="form-container__title">ログイン</h2>
     </div>
