@@ -25,25 +25,25 @@
         </a>
       </div>
       <div class="header-content__btn">
-        <a href="/users/sign_out" class="a-btn header-content__btnLink header-content__btnLink--logout" method="delete">
+        <%= link_to destroy_user_session_path, class: "a-btn header-content__btnLink header-content__btnLink--logout", method: "delete" do %>
           <div class="a-btn__inner">
             ログアウト
           </div>
-        </a>
+        <% end %>
       </div>
       <div class="header-content__btn">
-        <a href="/users/sign_in" class="a-btn header-content__btnLink header-content__btnLink--login">
+        <%= link_to new_user_session_path, class: "a-btn header-content__btnLink header-content__btnLink--login" do %>
           <div class="a-btn__inner">
             ログイン
           </div>
-        </a>
+        <% end %>
       </div>
       <div class="header-content__btn">
-        <a href="/users/sign_up" class="a-btn header-content__btnLink header-content__btnLink--signUp">
+        <%= link_to new_user_registration_path, class: "a-btn header-content__btnLink header-content__btnLink--signUp" do %>
           <div class="a-btn__inner">
             新規登録
           </div>
-        </a>
+        <% end %>
       </div>
     </div>
   </div>
