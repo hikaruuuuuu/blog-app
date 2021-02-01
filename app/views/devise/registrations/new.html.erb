@@ -3,7 +3,7 @@
   <section class="form-container">
     <div class="form-container__titleGroup">
       <div class="form-container__accountHave">
-        <%= link_to new_user_session_path, class: "a-btn header-content__btnLink header-content__btnLink--login" do %>
+        <%= link_to new_user_session_path do %>
           <span class="form-container__anotherHaveText">アカウントお持ちの方はこちら</span>
         <% end %>
         </a>
@@ -15,7 +15,7 @@
       <div class="register-form-content register-form-content--articleFormCotent">
         <div class="register-form-group">
           <span class="register-form-group__require">必須</span>
-          <%= f.text_area :nickname, class: "register-form-group__textField register-form-group__textField--nickname", placeholder:"ニックネーム", autofocus: true %>
+          <%= f.text_field :nickname, class: "register-form-group__textField register-form-group__textField--nickname", placeholder:"ニックネーム", autofocus: true %>
         </div>
         <div class="register-form-group">
           <span class="register-form-group__require">必須</span>
