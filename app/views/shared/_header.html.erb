@@ -17,32 +17,35 @@
     </div>
 
     <div class="header-content__btns">
-      <div class="header-content__btn">
-        <a href="/articles/new" class="a-btn header-content__btnLink header-content__btnLink--article_new">
-          <div class="a-btn__inner">
-            新規投稿
-          </div>
-        </a>
-      </div>
-      <div class="header-content__btn">
-        <%= link_to destroy_user_session_path, class: "a-btn header-content__btnLink header-content__btnLink--logout", method: "delete" do %>
-          <div class="a-btn__inner">
-            ログアウト
-          </div>
-        <% end %>
-      </div>
-      <div class="header-content__btn">
-        <%= link_to new_user_session_path, class: "a-btn header-content__btnLink header-content__btnLink--login" do %>
-          <div class="a-btn__inner">
-            ログイン
-          </div>
-        <% end %>
-      </div>
-      <div class="header-content__btn">
-        <%= link_to new_user_registration_path, class: "a-btn header-content__btnLink header-content__btnLink--signUp" do %>
-          <div class="a-btn__inner">
-            新規登録
-          </div>
+      <% if user_signed_in? %>
+        <div class="header-content__btn">
+          <a href="/articles/new" class="a-btn header-content__btnLink header-content__btnLink--article_new">
+            <div class="a-btn__inner">
+              新規投稿
+            </div>
+          </a>
+        </div>
+        <div class="header-content__btn">
+          <%= link_to destroy_user_session_path, class: "a-btn header-content__btnLink header-content__btnLink--logout", method: "delete" do %>
+            <div class="a-btn__inner">
+              ログアウト
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="header-content__btn">
+          <%= link_to new_user_session_path, class: "a-btn header-content__btnLink header-content__btnLink--login" do %>
+            <div class="a-btn__inner">
+              ログイン
+            </div>
+          <% end %>
+        </div>
+        <div class="header-content__btn">
+          <%= link_to new_user_registration_path, class: "a-btn header-content__btnLink header-content__btnLink--signUp" do %>
+            <div class="a-btn__inner">
+              新規登録
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
