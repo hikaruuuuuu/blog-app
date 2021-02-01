@@ -1,0 +1,50 @@
+<header class="header-container">
+  <div class="header-content">
+    <h1 class="header-content__logo">
+      <a href="/" class="header-content__logoLink">
+        <%= icon("fas", "pencil-alt", class: "header-content__logoImg") %>
+        MemoLog
+      </a>
+    </h1>
+
+    <div class="header-content__search">
+      <form class="header-content__searchForm">
+        <input type="text" class="header-content__searchInput" placeholder="記事を検索してみましょう！">
+        <button class="header-content__searchBtn">
+          <%= icon("fas", "search", class: "header-content__searchBtnIcon") %>
+        </button>
+      </form>
+    </div>
+
+    <div class="header-content__btns">
+      <div class="header-content__btn">
+        <a href="/articles/new" class="a-btn header-content__btnLink header-content__btnLink--article_new">
+          <div class="a-btn__inner">
+            新規投稿
+          </div>
+        </a>
+      </div>
+      <div class="header-content__btn">
+        <a href="/users/sign_out" class="a-btn header-content__btnLink header-content__btnLink--logout" method="delete">
+          <div class="a-btn__inner">
+            ログアウト
+          </div>
+        </a>
+      </div>
+      <div class="header-content__btn">
+        <a href="/users/sign_in" class="a-btn header-content__btnLink header-content__btnLink--login">
+          <div class="a-btn__inner">
+            ログイン
+          </div>
+        </a>
+      </div>
+      <div class="header-content__btn">
+        <a href="/users/sign_up" class="a-btn header-content__btnLink header-content__btnLink--signUp">
+          <div class="a-btn__inner">
+            新規登録
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

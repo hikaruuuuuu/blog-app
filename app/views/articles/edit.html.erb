@@ -1,0 +1,77 @@
+<%= render "shared/another_header" %>
+<main class="form-group">
+  <section class="form-container form-container--articleForm">
+    <form class="register-form">
+      <div class="register-form-content">
+        <div class="register-form-group">
+        </div>
+        <div class="register-form-group register-form-group--flexBox">
+          <label class="register-form-group__label" for="article-image">
+            <%= icon("fas", "image fa-3x", class: "register-form-group__imgIcon") %>
+            <input name="hoge" type="file" class="register-form-group__imgField" id="article-image">
+          <div class="register-form-group__submitBtn">
+            <a href="#" class="a-btn" id="js-form-posting-article">
+              <div class="a-btn__inner">投稿設定</div>
+            </a>
+          </div>
+        </div>
+        <div class="register-form-group register-form-group--articleTitle">
+          <span class="register-form-group__require">必須</span>
+          <input name="hoge" type="text" placeholder="記事のタイトル" class="register-form-group__textField register-form-group__textField--articleTitle">
+        </div>
+        <div class="register-form-group register-form-group--articleText">
+          <span class="register-form-group__require">必須</span>
+          <textarea name="hoge" type="text" placeholder="記事の本文" class="register-form-group__textField register-form-group__textField--articleText"></textarea>
+        </div>
+      </div>
+      <div class="register-form-modal display_none" id="js-form-modal">
+        <div class="modal-wrapper">
+          <div class="modal-content modal-content--basic">
+            <header class="modal-content__header">
+              <div class="modal-content__title">
+                投稿設定
+              </div>
+            </header>
+            <div class="moddal-content__body">
+              <div class="modal-content__bodyItems">
+                <div class="modal-content__bodyItem">
+                  <div class="modal-content__title modal-content__bodytitleItem">
+                    <h3 class="modal-content__titleItemName">
+                      有料設定
+                    </h3>
+                  </div>
+                  <div class="modal-content__checkBox">
+                    <input name="hoge" type="radio" class="register-form-group__checkBox register-form-group__checkBox--free" id="js-free">
+                    <span class="register-form-group__free">無料</span>
+                    <input name="hoge" type="radio" class="register-form-group__checkBox register-form-group__checkBox--free" id="js-not-free">
+                    <span class="register-form-group__notFree">有料</span>
+                  </div>
+                </div>
+                <div class="modal-content__bodyItem display_none" id="js-modal-price">
+                  <div class="modal-content__title modal-content__bodytitleItem modal-content__title--price">
+                    <h3 class="modal-content__titleItemName">
+                      価格
+                    </h3>
+                  </div>
+                  <div class="modal-content__price">
+                    <div class="register-form-group">
+                      <input name="hoge" type="text" placeholder="記事のタイトル" class="register-form-group__textField register-form-group__textField--price">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer class="modal-content__footer">
+              <div class="modal-content__btnGroup">
+                <a href="#" class="a-btn a-btn--small modal-content__stopPosting" id="js-modal-cancel">
+                  <div class="a-btn__inner a-btn__inner--small">キャンセル</div>
+                </a>
+                <input name="hoge" value="投稿する" type="submit" placeholder="記事のタイトル" class="a-btn a-btn__inner--small a-btn--small a-btn--primary modal-content__posting">
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+</main>

@@ -1,0 +1,14 @@
+.another-header-content {
+  text-align: center;
+  padding-bottom: 40px;
+  &__logo {
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 40px;
+  }
+
+  &__logoImg {
+    color: $light-blue;
+    font-size: 32px;
+  }
+}
