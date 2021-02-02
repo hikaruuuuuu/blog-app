@@ -1,7 +1,7 @@
 <header class="another-header-container">
   <div class="another-header-content">
     <h1 class="another-header-content__logo">
-      <%= link_to root_path, class: "another-header-content__logoLink" %>
+      <%= link_to root_path, class: "another-header-content__logoLink" do %>
         <%= icon("fas", "pencil-alt", class: "another-header-content__logoImg") %>
         MemoLog
       <% end %>
