@@ -53,7 +53,6 @@ RSpec.describe User, type: :model do
       it "passwordが128文字以上だと登録できない" do
         pass = "1a" + Faker::Internet.password(min_length: 127)
         @user.password = pass
-        binding.pry
         @user.valid?
         expect(@user.errors.full_messages).to include("Passwordは、7 ~ 128文字以内の半角英数混合で入力してください")
       end
