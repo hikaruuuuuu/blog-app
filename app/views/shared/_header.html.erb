@@ -1,10 +1,10 @@
 <header class="header-container">
   <div class="header-content">
     <h1 class="header-content__logo">
-      <a href="/" class="header-content__logoLink">
+      <%= link_to root_path, class: "header-content__logoLink" do %>
         <%= icon("fas", "pencil-alt", class: "header-content__logoImg") %>
         MemoLog
-      </a>
+      <% end %>
     </h1>
 
     <div class="header-content__search">
