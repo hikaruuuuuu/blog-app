@@ -1,14 +1,18 @@
 <%= render "shared/another_header" %>
 <main class="form-group">
   <section class="form-container form-container--articleForm">
-    <form class="register-form">
+    <%= form_with model: @article, class: "register-form", local: true do |f|%>
+    <%= render "shared/error_messages", model: f.object %>
       <div class="register-form-content">
         <div class="register-form-group">
         </div>
         <div class="register-form-group register-form-group--flexBox">
-          <label class="register-form-group__label" for="article-image">
+          <%= f.label :image, class: "register-form-group__label" do %>
+          <%# <label class="register-form-group__label" for="article-image"> %>
             <%= icon("fas", "image fa-3x", class: "register-form-group__imgIcon") %>
-            <input name="image" type="file" class="register-form-group__imgField" id="article-image">
+            <%= f.file_field :image, class: "register-form-group__imgField", id: "article_image" %>
+            <%# <input name="image" type="file" class="register-form-group__imgField" id="article-image"> %>
+          <% end %>
           <div class="register-form-group__submitBtn">
             <a href="#" class="a-btn" id="js-form-posting-article">
               <div class="a-btn__inner">投稿設定</div>
@@ -17,11 +21,13 @@
         </div>
         <div class="register-form-group register-form-group--articleTitle">
           <span class="register-form-group__require">必須</span>
-          <input name="title" type="text" placeholder="記事のタイトル" class="register-form-group__textField register-form-group__textField--articleTitle">
+          <%= f.text_field :title, placeholder: "記事のタイトル", class: "register-form-group__textField register-form-group__textField--articleTitle" %>
+          <%# <input name="title" type="text" placeholder="記事のタイトル" class="register-form-group__textField register-form-group__textField--articleTitle"> %>
         </div>
         <div class="register-form-group register-form-group--articleText">
           <span class="register-form-group__require">必須</span>
-          <textarea name="text" type="text" placeholder="記事の本文" class="register-form-group__textField register-form-group__textField--articleText"></textarea>
+          <%= f.text_area :text, placeholder: "記事の本文", class: "register-form-group__textField register-form-group__textField--articleText" %>
+          <%# <textarea name="text" type="text" placeholder="記事の本文" class="register-form-group__textField register-form-group__textField--articleText"></textarea> %>
         </div>
       </div>
 
@@ -68,7 +74,8 @@
                 <a href="#" class="a-btn a-btn--small modal-content__stopPosting" id="js-modal-cancel">
                   <div class="a-btn__inner a-btn__inner--small">キャンセル</div>
                 </a>
-                <input name="hoge" value="投稿する" type="submit" placeholder="記事のタイトル" class="a-btn a-btn__inner--small a-btn--small a-btn--primary modal-content__posting">
+                <%= f.submit "投稿する", class: "a-btn a-btn__inner--small a-btn--small a-btn--primary modal-content__posting" %>
+                <%# <input name="hoge" value="投稿する" type="submit" placeholder="記事のタイトル" class="a-btn a-btn__inner--small a-btn--small a-btn--primary modal-content__posting"> %>
               </div>
             </footer>
           </div>
@@ -76,6 +83,6 @@
       </div>
       <%#= 投稿設定のとこ %>
 
-    </form>
+    <% end %>
   </section>
 </main>
