@@ -1,0 +1,16 @@
+@import "commons/variable";
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "commons/reset";
+@import "commons/common";
+@import "commons/error_messages";
+@import "layouts/header";
+@import "layouts/another_header";
+@import "layouts/form_parts";
+@import "layouts/modal";
+@import "layouts/a_display";
+@import "layouts/must_buy";
+@import "pages/articles_index";
+@import "pages/article_detail";
+@import "pages/article_purchase_index";

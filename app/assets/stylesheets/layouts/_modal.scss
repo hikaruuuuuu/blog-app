@@ -1,0 +1,77 @@
+.register-form-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  overflow: auto;
+  background-color: $modal_black;
+}
+
+.modal-content {
+  width: 50vw;
+  text-align: left;
+  &--basic {
+    margin: 56px auto;
+    background-color: $white;
+  }
+
+  &__checkBox {
+    display: flex;
+    align-items: center;
+  }
+
+  &__header {
+    text-align: center;
+    padding: 16px 0;
+    border-bottom: 1px solid $light-gray;
+  }
+
+  &__title {
+    font-weight: 700;
+    letter-spacing: 1px;
+    &--price {
+      margin-top: 20px;
+    }
+  }
+
+  &__bodyItems {
+    margin: 30px;
+  }
+
+  &__bodyItem {
+    &--price {
+      display: flex;
+    }
+  }
+
+  &__bodytitleItem {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  &__footer {
+    margin: 30px;
+    border-top: 1px solid $light-gray;
+  }
+
+  &__btnGroup {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 0;
+  }
+
+  &__posting {
+    margin-left: 15px;
+  }
+}

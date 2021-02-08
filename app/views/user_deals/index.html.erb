@@ -1,0 +1,126 @@
+<%= render "shared/another_header" %>
+<main class="form-group">
+  <section class="form-container form-container--purchaseForm">
+    <div class="article-purchase-detail">
+      <div class="article-purchase-detail__content">
+        <div class="article-purchase-detail__info">
+          <h3 class="article-purchase-detail__title">
+            あああああああああ
+          </h3>
+          <div class="article-purchase-detail__price">
+            100円
+          </div>
+        </div>
+        <div class="article-purchase-detail__image">
+          <%= image_tag "apple.jpg", class: "article-purchase-detail__imageSrc" %>
+        </div>
+      </div>
+    </div>
+    <form class="register-form register-form--purchase">
+      <div class="form-container__titleGroup">
+        <h2 class="form-container__title">購入情報を入力</h2>
+      </div>
+      <div class="register-form-content">
+        <div class="register-form-group register-form-group--cardNumber">
+          <div class="register-form-group__labelGroup">
+            <label class="register-form-group__label">カード番号</label>
+            <span class="register-form-group__require">必須</span>
+          </div>
+          <input name="hoge" type="text" class= "register-form-group__textField register-form-group__textField--cardNumber", placeholder= "例) 4242424242424242">
+        </div>
+        <div class="register-form-group register-form-group--cvc">
+          <div class="register-form-group__labelGroup">
+            <label class="register-form-group__label">有効期限</label>
+            <span class="register-form-group__require">必須</span>
+          </div>
+          <div class="register-form-group__requireDate register-form-group--flexBox">
+            <div class="register-form-group__expMonth">
+              <input name="hoge" type="text" class= "register-form-group__textField register-form-group__textField--expMonth", placeholder= "例) 11">
+            </div>
+            <div class="register-form-group__seperate">
+              /
+            </div>
+            <div class="register-form-group__expYear">
+              <input name="hoge" type="text" class= "register-form-group__textField register-form-group__textField--expYear", placeholder= "例) 23">
+            </div>
+          </div>
+        </div>
+        <div class="register-form-group">
+          <div class="register-form-group__labelGroup">
+            <label class="register-form-group__label">セキュリティコード</label>
+            <span class="register-form-group__require">必須</span>
+          </div>
+          <input name="hoge" type="text" class= "register-form-group__textField register-form-group__textField--cvc", placeholder="例) 123 カード裏面の番号を入力してください">
+        </div>
+        <div class="register-form-group">
+          <div class="register-form-group__labelGroup">
+            <label class="register-form-group__label">氏名</label>
+            <span class="register-form-group__require">必須</span>
+          </div>
+          <div class="register-form-group__userName register-form-group--flexBox">
+            <div class="register-form-group__lastName">
+              <input name="hoge" type="text" class= "register-form-group__textField register-form-group__textField--lastName", placeholder="例) 山田">
+            </div>
+            <div class="register-form-group__firstName register-form-group__marginLeft">
+              <input name="hoge" type="text" class= "register-form-group__textField register-form-group__textField--firstName", placeholder="例) 花子">
+            </div>
+          </div>
+          <div class="register-form-group__userNameFurigana register-form-group--flexBox">
+            <div class="register-form-group__lastNameFurigana">
+              <input name="hoge" type="text" class= "register-form-group__textField register-form-group__textField--lastNameFurigana", placeholder="例) やまだ">
+            </div>
+            <div class="register-form-group__firstNameFurigana register-form-group__marginLeft">
+              <input name="hoge" type="text" class= "register-form-group__textField register-form-group__textField--firstNameFurigana", placeholder="例) はなこ">
+            </div>
+          </div>
+        </div>
+        <div class="register-form-group">
+          <div class="register-form-group__labelGroup">
+            <label class="register-form-group__label">郵便番号</label>
+            <span class="register-form-group__require">必須</span>
+          </div>
+          <input name="hoge" type="text" class= "register-form-group__textField register-form-group__textField--postNumber", placeholder="例) 123-4567">
+        </div>
+        <div class="register-form-group">
+          <div class="register-form-group__labelGroup">
+            <label class="register-form-group__label">都道府県</label>
+            <span class="register-form-group__require">必須</span>
+          </div>
+           <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {},{class:"register-form-group__selectBox register-form-group__selectBox--prefecture", id:"item-prefecture"}) %>
+        </div>
+        <div class="register-form-group">
+          <div class="register-form-group__labelGroup">
+            <label class="register-form-group__label">市町区村</label>
+            <span class="register-form-group__require">必須</span>
+          </div>
+          <input name="hoge" type="text" class= "register-form-group__textField register-form-group__textField--city", placeholder="例) 鹿児島市">
+        </div>
+        <div class="register-form-group">
+          <div class="register-form-group__labelGroup">
+            <label class="register-form-group__label">番地</label>
+            <span class="register-form-group__require">必須</span>
+          </div>
+          <input name="hoge" type="text" class= "register-form-group__textField register-form-group__textField--address", placeholder="例) 1-1-1">
+        </div>
+        <div class="register-form-group">
+          <div class="register-form-group__labelGroup">
+            <label class="register-form-group__label">建物</label>
+            <span class="register-form-group__require">必須</span>
+          </div>
+          <input name="user_deal[building_name]" type="text" class= "register-form-group__textField register-form-group__textField--address", placeholder="例) divコーポ 402号室">
+        </div>
+        <div class="register-form-group">
+          <div class="register-form-group__labelGroup">
+            <label class="register-form-group__label">電話番号</label>
+            <span class="register-form-group__require">必須</span>
+          </div>
+          <input name="hoge" type="text" class= "register-form-group__textField register-form-group__textField--address", placeholder="例) 08012345678">
+        </div>
+        <div class="register-form-submit">
+           <input type="submit" value="購入する" class= "register-form-submit__btn a-btn a-btn--primary">
+          <a href="#" class="register-form-submit__btn register-form-submit__btn--return a-btn">戻る</a>
+        </div>
+      </div>
+    </form>
+  </section>
+</main>

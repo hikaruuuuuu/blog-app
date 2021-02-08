@@ -1,0 +1,33 @@
+.article-purchase-detail {
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid $light-gray;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 22px;
+  }
+
+  &__price {
+    margin-top: 8px;
+    font-size: 16px;
+    color: $gray;
+  }
+
+  &__image {
+
+  }
+
+  &__imageSrc {
+
+  }
+}

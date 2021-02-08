@@ -1,0 +1,290 @@
+<%= render "shared/header" %>
+<main class="aritcle-detail">
+  <div class="article-detail-item">
+    <article class="article-detail-item__body">
+      <div class="article-detail-content">
+        <figure class="article-eyecatch">
+          <%= image_tag "apple.jpg", class: "a-image article-eyecatch__image" %>
+        </figure>
+        <div class="article-detail-content__body">
+          <h1 class="article-detail-content__title">ああああああああああああああああああああ</h1>
+          <div class="article-detail-content__status">
+            <div class="article-detail-content__like">
+              <%= icon("far", "heart", class: "a-icon a-icon--heart a-icon--small") %>
+              <span class="article-detail-content__likeCount">1</span>
+            </div>
+            <div class="article-detail-content__priceBox">
+              <%= icon("fas", "yen-sign", class: "a-icon a-icon--price a-icon--small") %>
+              <span class="article-detail-content__price">110</span>
+            </div>
+          </div>
+          <div class="article-detail-content__author">
+            <div class="article-detail-content__info">
+              <div class="article-detail-content__name">
+                <a href="#" class="a-link article-detail-cotent__link">
+                  ああああ
+                </a>
+              </div>
+              <span class="article-detail-content__date">
+                <time>2020/12/2317:00</time>
+              </span>
+            </div>
+            <div class="article-detail-content__status">
+              <div class="article-detail-content__actionList">
+                <a href="#" class="a-link article-detail-content__actionListLink" id="js-showPage-ellipse">
+                  <%= icon("fas", "ellipsis-h", class: "a-icon a-icon--ellipse") %>
+                </a>
+                <div class="a-display a-display--arrow_top display_none" id="js-showPage-display">
+                  <div class="a-display__body a-display__body--articleShowPage">
+                    <ul class="a-display__basicLists">
+                      <li class="a-display__basicListItem a-display__basicListItem--not">
+                        <a href="/articles/:id/edit" class="a-display__link">編集する</a>
+                      </li>
+                      <li class="a-display__basicListItem">
+                        <a href="#" class="a-display__link">削除する</a>
+                      </li>
+                     </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="article-detail-text">
+            <div class="article-detail-text__body">
+              <p>ああああああああああああああああああああああああああ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="article-pay-wall">
+        <div class="article-pay-wallHeader">
+          <h2 class="article-pay-wallHeader__title">
+            この続きは購入すると見れます！
+          </h2>
+        </div>
+        <section class="article-pay-wall__item">
+          <div class="article-paySaleWall">
+            <div class="article-paySaleWall__inner">
+              <div class="article-paySaleWall__content">
+                <div class="article-paySaleWall__itemDetail">
+                  <h3 class="article-paySaleWall__itemTitle">
+                    ああああああああああああああああああああ
+                  </h3>
+                  <div class="article-paySaleWall__itemName">
+                    ああああ
+                  </div>
+                  <p class="article-paySaleWall__itemPrice">
+                    <span>100円</span>
+                  </p>
+                </div>
+                <div class="article-paySaleWall__itemImage">
+                  <%= image_tag "apple.jpg", class: "a-image article-paySaleWall__itemImageSrc" %>
+                </div>
+              </div>
+              <div class="article-paySaleWall__itemAction">
+                <a href="/articles/:article_id/user_deals" class="a-btn">
+                  <div class="a-btn__inner">
+                    購入する
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <div class="article-detail-hashtags">
+        <div class="article-detail-hashtagGroup">
+          <ul class="article-detail-hashtagGroup__body">
+            <li class="article-detail-hashtagGroup__item">
+              <a href="#" class="article-detail-hashtag__link a-link a-tag__link">
+                <div class="a-tag a-tag--small">
+                  <div class="a-tag__label">
+                    #今週のおすすめ
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="article-detail-hashtagGroup__item">
+              <a href="#" class="article-detail-hashtag__link a-link a-tag__link">
+                <div class="a-tag a-tag--small">
+                  <div class="a-tag__label">
+                    #今週のおすすめ
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="article-detail-hashtagGroup__item">
+              <a href="#" class="article-detail-hashtag__link a-link a-tag__link">
+                <div class="a-tag a-tag--small">
+                  <div class="a-tag__label">
+                    #今週のおすすめ
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="article-detail-action">
+        <div class="article-detail-action__btns">
+          <div class="article-detail-action__btn">
+            <a href="#" class="a-link">
+              <%= icon("far", "heart", class: "a-icon a-icon--heart a-icon--medium")%>
+            </a>
+          </div>
+          <div class="article-detail-action__btn article-detail-action__btn--alert">
+            <a href="#" class="a-btn a-btn--alert a-btn article-detail-action__btn--link">
+              <div class="a-btn__inner a-btn__inner--small">
+                記事を報告する
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="article-account-follow">
+        <div class="account-follow-content">
+          <p class="account-follow-sentense">
+            <span class="account-follow-sentense__authorName">ああああ</span>さんをフォローしますか？
+          </p>
+          <div class="account-follow-content__btn">
+            <a href="#" class="a-btn account-follow-content__btn--link">
+              <div class="a-btn__inner">
+                フォロー
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="article-comment-content">
+        <form class="article-comment-form">
+          <div class="register-form-group">
+            <textarea name="hoge" placeholder="相手を傷つけないようにコメントしてね！" class="register-form-group__textField register-form-group__textField--commentArea"></textarea>
+          </div>
+          <input value="コメントする" class="a-btn a-btn--primary register-form-submit register-form-submit__btn">
+        </form>
+      </div>
+    </article>
+    <div class="article-related-content">
+      <h2 class="article-related-content__title">
+        ああああさんのその他の記事
+      </h2>
+      <div class="article-related-content__body">
+        <div class="article-related-content__item">
+          <section class="article-item-list">
+            <a href="#" class="a-link">
+              <div class="article-item-list__body">
+                <div class="article-item-list__item">
+                  <h3 class="article-item-list__title">
+                    あああああああああああああああああああああああああああああああああああああ
+                  </h3>
+                  <div class="article-item-list__detail">
+                    <div class="article-item-list__like">
+                      <span class="article-item-list__icon">
+                        <%= icon("far", "heart" , class: "a-icon a-icon--heart a-icon--small") %>
+                      </span>
+                      <span class="article-item-list__likeCount">
+                        144
+                      </span>
+                    </div>
+                    <div class="article-item-list__creatorName">
+                      <a href="#" class="a-link">
+                        ああああ
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="article-item-list__eyecatch">
+                <figure class="article-item-list__eyecatchImage a-eyecatch a-eyecatch--medium">
+                  <%= image_tag "apple.jpg", class: "a-image a-eyecatch__image"%>
+                </figure>
+              </div>
+            </a>
+          </section>
+        </div>
+        <div class="article-related-content__item">
+          <section class="article-item-list">
+            <a href="#" class="a-link">
+              <div class="article-item-list__body">
+                <div class="article-item-list__item">
+                  <h3 class="article-item-list__title">
+                    あああああああああああああああああああああああああああああああああああああ
+                  </h3>
+                  <div class="article-item-list__detail">
+                    <div class="article-item-list__like">
+                      <span class="article-item-list__icon">
+                        <%= icon("far", "heart" , class: "a-icon a-icon--heart a-icon--small") %>
+                      </span>
+                      <span class="article-item-list__likeCount">
+                        144
+                      </span>
+                    </div>
+                    <div class="article-item-list__creatorName">
+                      <a href="#" class="a-link">
+                        ああああ
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="article-item-list__eyecatch">
+                <figure class="article-item-list__eyecatchImage a-eyecatch a-eyecatch--medium">
+                  <%= image_tag "apple.jpg", class: "a-image a-eyecatch__image"%>
+                </figure>
+              </div>
+            </a>
+          </section>
+        </div>
+        <div class="article-related-content__item">
+          <section class="article-item-list">
+            <a href="#" class="a-link">
+              <div class="article-item-list__body">
+                <div class="article-item-list__item">
+                  <h3 class="article-item-list__title">
+                    あああああああああああああああああああああああああああああああああああああ
+                  </h3>
+                  <div class="article-item-list__detail">
+                    <div class="article-item-list__like">
+                      <span class="article-item-list__icon">
+                        <%= icon("far", "heart" , class: "a-icon a-icon--heart a-icon--small") %>
+                      </span>
+                      <span class="article-item-list__likeCount">
+                        144
+                      </span>
+                    </div>
+                    <div class="article-item-list__creatorName">
+                      <a href="#" class="a-link">
+                        ああああ
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="article-item-list__eyecatch">
+                <figure class="article-item-list__eyecatchImage a-eyecatch a-eyecatch--medium">
+                  <%= image_tag "apple.jpg", class: "a-image a-eyecatch__image"%>
+                </figure>
+              </div>
+            </a>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="article-item-sibling">
+      <nav class="article-item-sibling__nav">
+        <div class="article-item-sibling__prev">
+          <a href="#" class="article-item-sibling__link article-item-sibling__link--prev a-link">
+            <%= icon("fas", "angle-left", class: "a-icon a-icon--prev a-icon--medium") %>
+            <div class="article-item-sibling__label">いいいいいいいいいいいいい</div>
+          </a>
+        </div>
+        <div class="article-item-sibling__next">
+          <a href="#" class="article-item-sibling__link article-item-sibling__link--next a-link">
+            <div class="article-item-sibling__label">ううううううううううううう</div>
+            <%= icon("fas", "angle-right", class: "a-icon a-icon--next a-icon--medium") %>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </div>
+</main>
