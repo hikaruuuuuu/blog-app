@@ -8,10 +8,8 @@
         </div>
         <div class="register-form-group register-form-group--flexBox">
           <%= f.label :image, class: "register-form-group__label" do %>
-          <%# <label class="register-form-group__label" for="article-image"> %>
             <%= icon("fas", "image fa-3x", class: "register-form-group__imgIcon") %>
             <%= f.file_field :image, class: "register-form-group__imgField", id: "article_image" %>
-            <%# <input name="image" type="file" class="register-form-group__imgField" id="article-image"> %>
           <% end %>
           <div class="register-form-group__submitBtn">
             <a href="#" class="a-btn" id="js-form-posting-article">

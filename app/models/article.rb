@@ -11,4 +11,5 @@ class Article < ApplicationRecord
   validates_inclusion_of :price, in: 100..9_999_999, message: 'は¥100〜9,999,999に設定してください'
 
   belongs_to :user
+  has_one_attached :image
 end
