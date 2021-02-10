@@ -22,12 +22,10 @@
         <div class="register-form-group register-form-group--articleTitle">
           <span class="register-form-group__require">必須</span>
           <%= f.text_field :title, placeholder: "記事のタイトル", class: "register-form-group__textField register-form-group__textField--articleTitle" %>
-          <%# <input name="title" type="text" placeholder="記事のタイトル" class="register-form-group__textField register-form-group__textField--articleTitle"> %>
         </div>
         <div class="register-form-group register-form-group--articleText">
           <span class="register-form-group__require">必須</span>
           <%= f.text_area :text, placeholder: "記事の本文", class: "register-form-group__textField register-form-group__textField--articleText" %>
-          <%# <textarea name="text" type="text" placeholder="記事の本文" class="register-form-group__textField register-form-group__textField--articleText"></textarea> %>
         </div>
       </div>
 
@@ -75,7 +73,6 @@
                   <div class="a-btn__inner a-btn__inner--small">キャンセル</div>
                 </a>
                 <%= f.submit "投稿する", class: "a-btn a-btn__inner--small a-btn--small a-btn--primary modal-content__posting" %>
-                <%# <input name="hoge" value="投稿する" type="submit" placeholder="記事のタイトル" class="a-btn a-btn__inner--small a-btn--small a-btn--primary modal-content__posting"> %>
               </div>
             </footer>
           </div>
