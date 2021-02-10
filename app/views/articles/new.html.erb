@@ -45,14 +45,14 @@
                 <div class="modal-content__bodyItem">
                   <div class="modal-content__title modal-content__bodytitleItem">
                     <h3 class="modal-content__titleItemName">
-                      有料設定
+                      料金設定
                     </h3>
                   </div>
                   <div class="modal-content__checkBox">
-                    <input name="hoge" type="radio" class="register-form-group__checkBox register-form-group__checkBox--free" id="js-free">
-                    <span class="register-form-group__free">無料</span>
-                    <input name="hoge" type="radio" class="register-form-group__checkBox register-form-group__checkBox--free" id="js-not-free">
-                    <span class="register-form-group__notFree">有料</span>
+                    <%= f.label :buy_setting, "無料", value: false, class: "register-form-group__free" %>
+                    <%= f.radio_button :buy_setting, :false, checked: true, class: "register-form-group__checkBox register-form-group__checkBox--free", id: "js-free" %>
+                    <%= f.label :buy_setting, "有料", value: true, value: false, class: "register-form-group__free" %>
+                    <%= f.radio_button :buy_setting, :true, class: "register-form-group__checkBox register-form-group__checkBox--free", id: "js-free" %>
                   </div>
                 </div>
                 <div class="modal-content__bodyItem display_none" id="js-modal-price">
