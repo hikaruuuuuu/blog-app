@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    binding.pry
     if @article.save
       redirect_to root_path
     else
@@ -20,7 +21,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :text, :price, :hoge)#有料設定(buy_setting)のとこ今はhogeのまま
+    params.require(:article).permit(:title, :text, :price, :image, :buy_setting).merge(user_id: current_user.id)
   end
 
 end
