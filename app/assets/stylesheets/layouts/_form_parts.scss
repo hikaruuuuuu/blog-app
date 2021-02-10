@@ -74,6 +74,11 @@
     position: absolute;
     top: 0;
     right: 0;
+      &:hover {
+        border-color: $light-blue;
+        background-color: $light-blue;
+        color: $white;
+      }
   }
 
   &__labelGroup {
