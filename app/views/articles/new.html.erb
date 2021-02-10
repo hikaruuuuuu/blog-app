@@ -2,8 +2,8 @@
 <main class="form-group">
   <section class="form-container form-container--articleForm">
     <%= form_with model: @article, class: "register-form", local: true do |f|%>
-    <%= render "shared/error_messages", model: f.object %>
       <div class="register-form-content">
+      <%= render "shared/error_messages", model: f.object %>
         <div class="register-form-group">
         </div>
         <div class="register-form-group register-form-group--flexBox">
