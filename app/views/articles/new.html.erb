@@ -45,10 +45,11 @@
                     </h3>
                   </div>
                   <div class="modal-content__checkBox">
-                    <%= f.label :buy_setting, "無料", value: false, class: "register-form-group__free" %>
                     <%= f.radio_button :buy_setting, :false, checked: true, class: "register-form-group__checkBox register-form-group__checkBox--free", id: "js-free" %>
-                    <%= f.label :buy_setting, "有料", value: true, value: false, class: "register-form-group__free" %>
-                    <%= f.radio_button :buy_setting, :true, class: "register-form-group__checkBox register-form-group__checkBox--free", id: "js-free" %>
+                    <%= f.label :buy_setting, "無料", value: false, class: "register-form-group__free" %>
+                    <%= f.radio_button :buy_setting, :true, class: "register-form-group__checkBox register-form-group__checkBox--notFree", id: "js-not-free" %>
+                    <%= f.label :buy_setting, "有料", value: true, value: false, class: "register-form-group__notFree" %>
+
                   </div>
                 </div>
                 <div class="modal-content__bodyItem display_none" id="js-modal-price">
@@ -59,7 +60,8 @@
                   </div>
                   <div class="modal-content__price">
                     <div class="register-form-group">
-                      <input name="price" type="text" placeholder="記事の価格" class="register-form-group__textField register-form-group__textField--price">
+                      <%= f.text_field :price, placeholder: "記事の価格", class: "register-form-group__textField register-form-group__textField--price" %>
+                      <%# <input name="price" type="text" placeholder="記事の価格" class="register-form-group__textField register-form-group__textField--price"> %>
                     </div>
                   </div>
                 </div>
