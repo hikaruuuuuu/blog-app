@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("../new_article_modal")
 require("../a_display")
+require("../preview")
 require("channels")
 
 

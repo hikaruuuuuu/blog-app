@@ -11,10 +11,9 @@
             <%= icon("fas", "image fa-3x", class: "register-form-group__imgIcon") %>
             <%= f.file_field :image, class: "register-form-group__imgField", id: "article_image" %>
           <% end %>
+          <div id="preview"></div>
           <div class="register-form-group__submitBtn">
-            <a href="#" class="a-btn" id="js-form-posting-article">
-              <div class="a-btn__inner">投稿設定</div>
-            </a>
+            <div class="a-btn a-btn__inner" id="js-form-posting-article">投稿設定</div>
           </div>
         </div>
         <div class="register-form-group register-form-group--articleTitle">
