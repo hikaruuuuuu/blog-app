@@ -19,31 +19,53 @@ RSpec.describe Article, type: :model do
 
     context '投稿できない' do
         it '画像がない' do
-          
+          @article.image = nil
+          @article.valid?
+          expect(@article.errors.full_messages).to include("Imageが入力されていません")
         end
         it 'titleがない' do
-          
+          @article.title = nil
+          @article.valid?
+          expect(@article.errors.full_messages).to include("Titleが入力されていません")
         end
         it 'textがない' do
-          
+          @article.text = nil
+          @article.valid?
+          expect(@article.errors.full_messages).to include("Textが入力されていません")
         end
-        it 'buy_settingがない' do
-          
-        end
+        # it 'buy_settingがない' do
+        #   @article.buy_setting = nil
+        #   @article.valid?
+        #   expect(@article.errors.full_messages).to include("BuySettingが入力されていません")
+        # end
         it 'buy_settingがtrueなのにpriceがない' do
-          
+          @article.buy_setting = "true"
+          @article.price = ""
+          @article.valid?
+          binding.pry
+          expect(@article.errors.full_messages).to include("Priceが入力されていません")
         end
-        it 'priceが半角数次でない' do
-          
-        end
-        it 'priceが100円以下' do
-          
-        end
-        it 'priceが9,999,999万円以上' do
-          
-        end
+        # it 'priceが半角数次でない' do
+        #   @article.price = "１て２す３と"
+        #   @article.valid?
+        #   expect(@article.errors.full_messages).to include("Priceは半角数字で入力してください")
+        # end
+        # it 'priceが100円以下' do
+        #   @article.buy_setting = true
+        #   @article.price = 50
+        #   @article.valid?
+        #   expect(@article.errors.full_messages).to include("Priceはは¥100〜9,999,999に設定してください")
+        # end
+        # it 'priceが9,999,999万円以上' do
+        #   @article.buy_setting = true
+        #   @article.price = 10000000
+        #   @article.valid?
+        #   expect(@article.errors.full_messages).to include("Priceはは¥100〜9,999,999に設定してください")
+        # end
         it 'userがひもづいていない' do
-          
+          @article.user = nil
+          @article.valid?
+          expect(@article.errors.full_messages).to include("Userを入力してください")
         end
       
     end
