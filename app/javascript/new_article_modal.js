@@ -35,6 +35,7 @@ function ModalClick() {
     }
   });
 
+  //createのrender newになったときもpriceが出た状態になるように設定
   if( js_form_modal_not_free.getAttribute('checked')){ 
     js_modal_price_box.classList.remove("display_none");
   }
