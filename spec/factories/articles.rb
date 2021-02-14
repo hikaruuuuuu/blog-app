@@ -12,3 +12,5 @@ FactoryBot.define do
 
   end
 end
+
+# not_to allow_value

@@ -33,35 +33,35 @@ RSpec.describe Article, type: :model do
           @article.valid?
           expect(@article.errors.full_messages).to include("Textが入力されていません")
         end
-        # it 'buy_settingがない' do
-        #   @article.buy_setting = nil
-        #   @article.valid?
-        #   expect(@article.errors.full_messages).to include("BuySettingが入力されていません")
-        # end
+        it 'buy_settingがない' do
+          @article.buy_setting = nil
+          @article.valid?
+          expect(@article.errors.full_messages).to include("Buy settingが選択されていません")
+        end
         it 'buy_settingがtrueなのにpriceがない' do
-          @article.buy_setting = "true"
+          @article.buy_setting = true
           @article.price = ""
           @article.valid?
-          binding.pry
           expect(@article.errors.full_messages).to include("Priceが入力されていません")
         end
-        # it 'priceが半角数次でない' do
-        #   @article.price = "１て２す３と"
-        #   @article.valid?
-        #   expect(@article.errors.full_messages).to include("Priceは半角数字で入力してください")
-        # end
-        # it 'priceが100円以下' do
-        #   @article.buy_setting = true
-        #   @article.price = 50
-        #   @article.valid?
-        #   expect(@article.errors.full_messages).to include("Priceはは¥100〜9,999,999に設定してください")
-        # end
-        # it 'priceが9,999,999万円以上' do
-        #   @article.buy_setting = true
-        #   @article.price = 10000000
-        #   @article.valid?
-        #   expect(@article.errors.full_messages).to include("Priceはは¥100〜9,999,999に設定してください")
-        # end
+        it 'priceが100円以下' do
+          @article.buy_setting = true
+          @article.price = 50
+          @article.valid?
+          expect(@article.errors.full_messages).to include("Priceは¥100〜9,999,999に設定してください")
+        end
+        it 'priceが9,999,999万円以上' do
+          @article.buy_setting = true
+          @article.price = 10000000
+          @article.valid?
+          expect(@article.errors.full_messages).to include("Priceは¥100〜9,999,999に設定してください")
+        end
+        it 'priceが半角数字でない' do
+          @article.price = "あいうえお"
+          @article.valid?
+          binding.pry
+          expect(@article.errors.full_messages).to include("Priceは半角数字で入力してください","Priceは¥100〜9,999,999に設定してください")
+        end
         it 'userがひもづいていない' do
           @article.user = nil
           @article.valid?
