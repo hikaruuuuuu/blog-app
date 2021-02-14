@@ -34,6 +34,10 @@ function ModalClick() {
       js_modal_price_box.classList.add("display_none")
     }
   });
+
+  if( js_form_modal_not_free.getAttribute('checked')){ 
+    js_modal_price_box.classList.remove("display_none");
+  }
 }
 
 window.addEventListener("load", ModalClick);
