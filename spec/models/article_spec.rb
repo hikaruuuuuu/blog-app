@@ -60,7 +60,6 @@ RSpec.describe Article, type: :model do
           @article.buy_setting = true
           @article.price = "aaaa"
           @article.valid?
-          binding.pry
           expect(@article.errors.full_messages).to include("Priceは半角数字で入力してください","Priceは¥100〜9,999,999に設定してください")
         end
         it 'userがひもづいていない' do
