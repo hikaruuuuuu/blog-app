@@ -49,7 +49,7 @@
   position: relative;
 
   &--articleTitle {
-    padding-top: 120px;
+    padding-top: 50px;
   }
 
   &--flexBox {
@@ -74,6 +74,11 @@
     position: absolute;
     top: 0;
     right: 0;
+      &:hover {
+        border-color: $light-blue;
+        background-color: $light-blue;
+        color: $white;
+      }
   }
 
   &__labelGroup {
