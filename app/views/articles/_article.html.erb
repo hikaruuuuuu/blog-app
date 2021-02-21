@@ -2,7 +2,7 @@
 <section class="article-list-item">
   <div class="article-list-item__card">
     <div class="article-list-item__body">
-      <a href="/articles/:id">
+      <%= link_to article_path(article) do %>
         <div class="article-list-item__imgContainer">
           <%= image_tag article.image, alt: article.title, class: "article-list-item__img" %>
         </div>
@@ -33,24 +33,22 @@
               <% end %>
             </div>
           </div>
-        </a>
+        <% end %>
         <div class="article-list-item__footer">
           <div class="article-list-item__userInformation">
             <div class="article-list-item__userName">
-              <a href="#" class="a-link">
-                <span><%= article.user.nickname %></span>
-              </a>
+              <%= link_to article.user.nickname, "#", class: "a-link" %><%# users#showにいく  %>
             </div>
             <div class="article-list-item__userDate">
-              <a href="#" class="a-link">
+              <%= link_to "#", class: "a-link" do %>
                 <span>40分前</span>
-              </a>
+              <% end %>
             </div>
           </div>
           <div class="article-list-item__like">
-            <a href="#" class="a-link">
+            <%= link_to "#", class: "a-link" do %>
               <%= icon("far", "heart", class: "a-icon a-icon--heart")%>
-            </a>
+            <% end %>
           </div>
         </div>
       </div>
