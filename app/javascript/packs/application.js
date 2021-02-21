@@ -5,6 +5,7 @@
 
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
+require("jquery")
 require("../new_article_modal")
 require("../a_display")
 require("../preview")
