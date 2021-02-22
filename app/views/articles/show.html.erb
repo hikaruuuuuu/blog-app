@@ -33,8 +33,10 @@
             </div>
             <div class="article-detail-content__status">
               <div class="article-detail-content__actionList">
-                <%= link_to "#", class: "a-link article-detail-content__actionListLink", id: "js-showPage-ellipse" do %><%# 編集削除ボタンだすとこ %>
-                  <%= icon("fas", "ellipsis-h", class: "a-icon a-icon--ellipse") %>
+                <% if user_signed_in? && current_user.id == @article.user.id %>
+                  <%= link_to "#", class: "a-link article-detail-content__actionListLink", id: "js-showPage-ellipse" do %>
+                    <%= icon("fas", "ellipsis-h", class: "a-icon a-icon--ellipse") %>
+                  <% end %>
                 <% end %>
                 <div class="a-display a-display--arrow_top display_none" id="js-showPage-display">
                   <div class="a-display__body a-display__body--articleShowPage">
