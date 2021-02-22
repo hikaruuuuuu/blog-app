@@ -53,47 +53,53 @@
           </div>
           <div class="article-detail-text">
             <div class="article-detail-text__body">
-              <p><%= @article.text %></p>
+              <% if @article.buy_setting == true %>
+                <p><%= @article.text.truncate(10) %></p>
+              <% else %>
+                <p><%= @article.text %></p>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
-      <section class="article-pay-wall">
-        <div class="article-pay-wallHeader">
-          <h2 class="article-pay-wallHeader__title">
-            この続きは購入すると見れます！
-          </h2>
-        </div>
-        <section class="article-pay-wall__item">
-          <div class="article-paySaleWall">
-            <div class="article-paySaleWall__inner">
-              <div class="article-paySaleWall__content">
-                <div class="article-paySaleWall__itemDetail">
-                  <h3 class="article-paySaleWall__itemTitle">
-                    <%= @article.text %>
-                  </h3>
-                  <div class="article-paySaleWall__itemName">
-                    <%= @article.user.nickname %>
+      <% if @article.buy_setting == true %>
+        <section class="article-pay-wall">
+          <div class="article-pay-wallHeader">
+            <h2 class="article-pay-wallHeader__title">
+              この続きは購入すると見れます！
+            </h2>
+          </div>
+          <section class="article-pay-wall__item">
+            <div class="article-paySaleWall">
+              <div class="article-paySaleWall__inner">
+                <div class="article-paySaleWall__content">
+                  <div class="article-paySaleWall__itemDetail">
+                    <h3 class="article-paySaleWall__itemTitle">
+                      <%= @article.text.truncate(10) %>
+                    </h3>
+                    <div class="article-paySaleWall__itemName">
+                      <%= @article.user.nickname %>
+                    </div>
+                    <p class="article-paySaleWall__itemPrice">
+                      <span><%= @article.price %></span>
+                    </p>
                   </div>
-                  <p class="article-paySaleWall__itemPrice">
-                    <span><%= @article.price %></span>
-                  </p>
-                </div>
-                <div class="article-paySaleWall__itemImage">
-                  <%= image_tag @article.image, class: "a-image article-paySaleWall__itemImageSrc" %>
-                </div>
-              </div>
-              <div class="article-paySaleWall__itemAction">
-                <a href="/articles/:article_id/user_deals" class="a-btn">
-                  <div class="a-btn__inner">
-                    購入する
+                  <div class="article-paySaleWall__itemImage">
+                    <%= image_tag @article.image, class: "a-image article-paySaleWall__itemImageSrc" %>
                   </div>
-                </a>
+                </div>
+                <div class="article-paySaleWall__itemAction">
+                  <a href="/articles/:article_id/user_deals" class="a-btn">
+                    <div class="a-btn__inner">
+                      購入する
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
+          </section>
         </section>
-      </section>
+      <% end %>
       <div class="article-detail-hashtags">
         <div class="article-detail-hashtagGroup">
           <ul class="article-detail-hashtagGroup__body">
