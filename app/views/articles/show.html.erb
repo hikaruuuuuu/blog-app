@@ -54,7 +54,7 @@
           <div class="article-detail-text">
             <div class="article-detail-text__body">
               <% if @article.buy_setting == true %>
-                <p><%= @article.text.truncate(10) %></p>
+                <p><%= @article.text.truncate(30) %></p>
               <% else %>
                 <p><%= @article.text %></p>
               <% end %>
@@ -75,7 +75,7 @@
                 <div class="article-paySaleWall__content">
                   <div class="article-paySaleWall__itemDetail">
                     <h3 class="article-paySaleWall__itemTitle">
-                      <%= @article.text.truncate(10) %>
+                      <%= @article.text.truncate(30) %>
                     </h3>
                     <div class="article-paySaleWall__itemName">
                       <%= @article.user.nickname %>
