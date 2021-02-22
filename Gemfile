@@ -63,5 +63,4 @@ gem 'pry-rails'
 gem 'devise'
 gem 'font-awesome-sass'
 gem 'rails-i18n'
-
 gem 'image_processing', '~> 1.2'

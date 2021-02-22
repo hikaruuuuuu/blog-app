@@ -10,62 +10,66 @@
 
       <div class="articles-list">
         <div class="article-wrapper">
-          <section class="article-list-item">
-            <div class="article-list-item__card">
-              <div class="article-list-item__body">
-                <a href="/articles/:id">
-                  <div class="article-list-item__imgContainer">
-                    <%= image_tag "apple.jpg", alt: "ああああああ", class: "article-list-item__img" %>
-                  </div>
-                  <div class="article-list-item__info">
-                    <h3 class="article-list-item__title">
-                      ああああああああ
-                    <h3>
-                    <p class="article-list-item__description">
-                      ああああああああああああああああああああああああああああああああああああ
-                    </p>
-                    <div class="article-list-item__status_container">
-                      <div class="article-list-item__status article-list-item__status--like">
-                        <div class="article-list-item__icon">
+          <% if @articles.present? %>
+            <%= render @articles %>
+          <% else %>
+            <section>
+              <div class="article-list-item__card">
+                <div class="article-list-item__body">
+                  <a href="/articles/:id">
+                    <div class="article-list-item__imgContainer">
+                      <%= image_tag "apple.jpg", alt: "ああああああ", class: "article-list-item__img" %>
+                    </div>
+                    <div class="article-list-item__info">
+                      <h3 class="article-list-item__title">
+                        ああああああああ
+                      <h3>
+                      <p class="article-list-item__description">
+                        ああああああああああああああああああああああああああああああああああああ
+                      </p>
+                      <div class="article-list-item__status_container">
+                        <div class="article-list-item__status article-list-item__status--like">
+                          <div class="article-list-item__icon">
+                            <%= icon("far", "heart", class: "a-icon a-icon--heart")%>
+                          </div>
+                          <div class="article-list-item__label">
+                            1
+                          </div>
+                        </div>
+                        <div class="article-list-item__status article-list-item__status--price">
+                          <div class="article-list-item__icon article-list-item__icon--heart">
+                            <%= icon("fas", "yen-sign", class: "a-icon a-icon--price")%>
+                          </div>
+                          <div class="article-list-item__label">
+                            110
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    <div class="article-list-item__footer">
+                      <div class="article-list-item__userInformation">
+                        <div class="article-list-item__userName">
+                          <a href="#" class="a-link">
+                            <span>kyatakyata</span>
+                          </a>
+                        </div>
+                        <div class="article-list-item__userDate">
+                          <a href="#" class="a-link">
+                            <span>40分前</span>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="article-list-item__like">
+                        <a href="#" class="a-link">
                           <%= icon("far", "heart", class: "a-icon a-icon--heart")%>
-                        </div>
-                        <div class="article-list-item__label">
-                          1
-                        </div>
-                      </div>
-                      <div class="article-list-item__status article-list-item__status--price">
-                        <div class="article-list-item__icon article-list-item__icon--heart">
-                          <%= icon("fas", "yen-sign", class: "a-icon a-icon--price")%>
-                        </div>
-                        <div class="article-list-item__label">
-                          110
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <div class="article-list-item__footer">
-                    <div class="article-list-item__userInformation">
-                      <div class="article-list-item__userName">
-                        <a href="#" class="a-link">
-                          <span>kyatakyata</span>
                         </a>
                       </div>
-                      <div class="article-list-item__userDate">
-                        <a href="#" class="a-link">
-                          <span>40分前</span>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="article-list-item__like">
-                      <a href="#" class="a-link">
-                        <%= icon("far", "heart", class: "a-icon a-icon--heart")%>
-                      </a>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
+          <% end %>
         <div>
       </div>
     <div>
