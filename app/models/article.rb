@@ -23,12 +23,12 @@ class Article < ApplicationRecord
     buy_setting == true
   end
 
-  def previous
-    Article.where("id > ?", self.id).order("id DESC").first
+  def previous(post_article)
+    post_article.user.articles.where("id > ?", post_article.id).order("id DESC").first
   end
 
-  def next
-    Article.where("id < ?", self.id).order("id DESC").first
+  def next(post_article)
+    post_article.user.articles.where("id < ?", post_article.id).order("id DESC").first
   end
 
 end

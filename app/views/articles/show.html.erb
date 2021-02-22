@@ -217,17 +217,17 @@
     <div class="article-item-sibling">
       <nav class="article-item-sibling__nav">
         <div class="article-item-sibling__prev">
-          <% if @article.previous.present? %>
-            <%= link_to article_path(@article.previous), class: "article-item-sibling__link article-item-sibling__link--prev a-link" do %>
+          <% if @article.previous(@article).present? %>
+            <%= link_to article_path(@article.previous(@article)), class: "article-item-sibling__link article-item-sibling__link--prev a-link" do %>
               <%= icon("fas", "angle-left", class: "a-icon a-icon--prev a-icon--medium") %>
-              <div class="article-item-sibling__label"><%= @article.previous.title %></div>
+              <div class="article-item-sibling__label"><%= @article.previous(@article).title %></div>
             <% end %>
           <% end %>
         </div>
         <div class="article-item-sibling__next">
-          <% if @article.next.present? %>
-            <%= link_to article_path(@article.next), class: "article-item-sibling__link article-item-sibling__link--next a-link" do %>
-              <div class="article-item-sibling__label"><%= @article.next.title %></div>
+          <% if @article.next(@article).present? %>
+            <%= link_to article_path(@article.next(@article)), class: "article-item-sibling__link article-item-sibling__link--next a-link" do %>
+              <div class="article-item-sibling__label"><%= @article.next(@article).title %></div>
               <%= icon("fas", "angle-right", class: "a-icon a-icon--next a-icon--medium") %>
             <% end %>
           <% end %>

@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     user = @article.user
-    @user_articles = user.articles.where.not(id: @article.id)
+    @user_articles = user.articles.where.not(id: @article.id).order(created_at: :desc)
   end
 
   private
