@@ -18,6 +18,12 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def show
+    @article = Article.find(params[:id])
+    user = @article.user
+    @user_articles = user.articles.where.not(id: @article.id)
+  end
+
   private
 
   def article_params

@@ -4,29 +4,31 @@
     <article class="article-detail-item__body">
       <div class="article-detail-content">
         <figure class="article-eyecatch">
-          <%= image_tag "apple.jpg", class: "a-image article-eyecatch__image" %>
+          <%= image_tag @article.image, class: "a-image article-eyecatch__image" %>
         </figure>
         <div class="article-detail-content__body">
-          <h1 class="article-detail-content__title">ああああああああああああああああああああ</h1>
+          <h1 class="article-detail-content__title"><%= @article.title %></h1>
           <div class="article-detail-content__status">
             <div class="article-detail-content__like">
               <%= icon("far", "heart", class: "a-icon a-icon--heart a-icon--small") %>
               <span class="article-detail-content__likeCount">1</span>
             </div>
-            <div class="article-detail-content__priceBox">
-              <%= icon("fas", "yen-sign", class: "a-icon a-icon--price a-icon--small") %>
-              <span class="article-detail-content__price">110</span>
-            </div>
+            <% if @article.buy_setting == true %>
+              <div class="article-detail-content__priceBox">
+                <%= icon("fas", "yen-sign", class: "a-icon a-icon--price a-icon--small") %>
+                <span class="article-detail-content__price"><%= @article.price %></span>
+              </div>
+            <% end %>
           </div>
           <div class="article-detail-content__author">
             <div class="article-detail-content__info">
               <div class="article-detail-content__name">
                 <a href="#" class="a-link article-detail-cotent__link">
-                  ああああ
+                  <%= @article.user.nickname %>
                 </a>
               </div>
               <span class="article-detail-content__date">
-                <time>2020/12/2317:00</time>
+                <time><%= time_ago_in_words(@article.created_at, include_seconds: true) %>前</time>
               </span>
             </div>
             <div class="article-detail-content__status">
@@ -43,7 +45,7 @@
                       <li class="a-display__basicListItem">
                         <a href="#" class="a-display__link">削除する</a>
                       </li>
-                     </ul>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -51,7 +53,7 @@
           </div>
           <div class="article-detail-text">
             <div class="article-detail-text__body">
-              <p>ああああああああああああああああああああああああああ</p>
+              <p><%= @article.text %></p>
             </div>
           </div>
         </div>
@@ -68,17 +70,17 @@
               <div class="article-paySaleWall__content">
                 <div class="article-paySaleWall__itemDetail">
                   <h3 class="article-paySaleWall__itemTitle">
-                    ああああああああああああああああああああ
+                    <%= @article.text %>
                   </h3>
                   <div class="article-paySaleWall__itemName">
-                    ああああ
+                    <%= @article.user.nickname %>
                   </div>
                   <p class="article-paySaleWall__itemPrice">
-                    <span>100円</span>
+                    <span><%= @article.price %></span>
                   </p>
                 </div>
                 <div class="article-paySaleWall__itemImage">
-                  <%= image_tag "apple.jpg", class: "a-image article-paySaleWall__itemImageSrc" %>
+                  <%= image_tag @article.image, class: "a-image article-paySaleWall__itemImageSrc" %>
                 </div>
               </div>
               <div class="article-paySaleWall__itemAction">
@@ -144,7 +146,7 @@
       <div class="article-account-follow">
         <div class="account-follow-content">
           <p class="account-follow-sentense">
-            <span class="account-follow-sentense__authorName">ああああ</span>さんをフォローしますか？
+            <span class="account-follow-sentense__authorName"><%= @article.user.nickname %></span>さんをフォローしますか？
           </p>
           <div class="account-follow-content__btn">
             <a href="#" class="a-btn account-follow-content__btn--link">
@@ -166,108 +168,44 @@
     </article>
     <div class="article-related-content">
       <h2 class="article-related-content__title">
-        ああああさんのその他の記事
+        <%= @article.user.nickname %>のその他の記事
       </h2>
       <div class="article-related-content__body">
-        <div class="article-related-content__item">
-          <section class="article-item-list">
-            <a href="#" class="a-link">
-              <div class="article-item-list__body">
-                <div class="article-item-list__item">
-                  <h3 class="article-item-list__title">
-                    あああああああああああああああああああああああああああああああああああああ
-                  </h3>
-                  <div class="article-item-list__detail">
-                    <div class="article-item-list__like">
-                      <span class="article-item-list__icon">
-                        <%= icon("far", "heart" , class: "a-icon a-icon--heart a-icon--small") %>
-                      </span>
-                      <span class="article-item-list__likeCount">
-                        144
-                      </span>
-                    </div>
-                    <div class="article-item-list__creatorName">
-                      <a href="#" class="a-link">
-                        ああああ
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="article-item-list__eyecatch">
-                <figure class="article-item-list__eyecatchImage a-eyecatch a-eyecatch--medium">
-                  <%= image_tag "apple.jpg", class: "a-image a-eyecatch__image"%>
-                </figure>
-              </div>
-            </a>
-          </section>
-        </div>
-        <div class="article-related-content__item">
-          <section class="article-item-list">
-            <a href="#" class="a-link">
-              <div class="article-item-list__body">
-                <div class="article-item-list__item">
-                  <h3 class="article-item-list__title">
-                    あああああああああああああああああああああああああああああああああああああ
-                  </h3>
-                  <div class="article-item-list__detail">
-                    <div class="article-item-list__like">
-                      <span class="article-item-list__icon">
-                        <%= icon("far", "heart" , class: "a-icon a-icon--heart a-icon--small") %>
-                      </span>
-                      <span class="article-item-list__likeCount">
-                        144
-                      </span>
-                    </div>
-                    <div class="article-item-list__creatorName">
-                      <a href="#" class="a-link">
-                        ああああ
-                      </a>
+        <% @user_articles.each do |user_article| %>
+          <div class="article-related-content__item">
+            <section class="article-item-list">
+              <a href="#" class="a-link">
+                <div class="article-item-list__body">
+                  <div class="article-item-list__item">
+                    <h3 class="article-item-list__title">
+                      <%= user_article.title %>
+                    </h3>
+                    <div class="article-item-list__detail">
+                      <div class="article-item-list__like">
+                        <span class="article-item-list__icon">
+                          <%= icon("far", "heart" , class: "a-icon a-icon--heart a-icon--small") %>
+                        </span>
+                        <span class="article-item-list__likeCount">
+                          144
+                        </span>
+                      </div>
+                      <div class="article-item-list__creatorName">
+                        <a href="#" class="a-link">
+                          <%= user_article.user.nickname %>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="article-item-list__eyecatch">
-                <figure class="article-item-list__eyecatchImage a-eyecatch a-eyecatch--medium">
-                  <%= image_tag "apple.jpg", class: "a-image a-eyecatch__image"%>
-                </figure>
-              </div>
-            </a>
-          </section>
-        </div>
-        <div class="article-related-content__item">
-          <section class="article-item-list">
-            <a href="#" class="a-link">
-              <div class="article-item-list__body">
-                <div class="article-item-list__item">
-                  <h3 class="article-item-list__title">
-                    あああああああああああああああああああああああああああああああああああああ
-                  </h3>
-                  <div class="article-item-list__detail">
-                    <div class="article-item-list__like">
-                      <span class="article-item-list__icon">
-                        <%= icon("far", "heart" , class: "a-icon a-icon--heart a-icon--small") %>
-                      </span>
-                      <span class="article-item-list__likeCount">
-                        144
-                      </span>
-                    </div>
-                    <div class="article-item-list__creatorName">
-                      <a href="#" class="a-link">
-                        ああああ
-                      </a>
-                    </div>
-                  </div>
+                <div class="article-item-list__eyecatch">
+                  <figure class="article-item-list__eyecatchImage a-eyecatch a-eyecatch--medium">
+                    <%= image_tag user_article.image, class: "a-image a-eyecatch__image"%>
+                  </figure>
                 </div>
-              </div>
-              <div class="article-item-list__eyecatch">
-                <figure class="article-item-list__eyecatchImage a-eyecatch a-eyecatch--medium">
-                  <%= image_tag "apple.jpg", class: "a-image a-eyecatch__image"%>
-                </figure>
-              </div>
-            </a>
-          </section>
-        </div>
+              </a>
+            </section>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="article-item-sibling">
