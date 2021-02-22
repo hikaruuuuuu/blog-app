@@ -23,9 +23,9 @@
           <div class="article-detail-content__author">
             <div class="article-detail-content__info">
               <div class="article-detail-content__name">
-                <a href="#" class="a-link article-detail-cotent__link">
+                <%= link_to "#", class: "a-link article-detail-cotent__link" do %><%# user#showにとばす %>
                   <%= @article.user.nickname %>
-                </a>
+                <% end %>
               </div>
               <span class="article-detail-content__date">
                 <time><%= time_ago_in_words(@article.created_at, include_seconds: true) %>前</time>
@@ -33,17 +33,17 @@
             </div>
             <div class="article-detail-content__status">
               <div class="article-detail-content__actionList">
-                <a href="#" class="a-link article-detail-content__actionListLink" id="js-showPage-ellipse">
+                <%= link_to "#", class: "a-link article-detail-content__actionListLink", id: "js-showPage-ellipse" do %><%# 編集削除ボタンだすとこ %>
                   <%= icon("fas", "ellipsis-h", class: "a-icon a-icon--ellipse") %>
-                </a>
+                <% end %>
                 <div class="a-display a-display--arrow_top display_none" id="js-showPage-display">
                   <div class="a-display__body a-display__body--articleShowPage">
                     <ul class="a-display__basicLists">
                       <li class="a-display__basicListItem a-display__basicListItem--not">
-                        <a href="/articles/:id/edit" class="a-display__link">編集する</a>
+                        <%= link_to "編集する", "#", class: "a-display__link" %>
                       </li>
                       <li class="a-display__basicListItem">
-                        <a href="#" class="a-display__link">削除する</a>
+                        <%= link_to "削除する", "#", class: "a-display__link" %>
                       </li>
                     </ul>
                   </div>
@@ -89,11 +89,11 @@
                   </div>
                 </div>
                 <div class="article-paySaleWall__itemAction">
-                  <a href="/articles/:article_id/user_deals" class="a-btn">
+                  <%= link_to "#", class: "a-btn" do %>
                     <div class="a-btn__inner">
                       購入する
                     </div>
-                  </a>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -104,31 +104,31 @@
         <div class="article-detail-hashtagGroup">
           <ul class="article-detail-hashtagGroup__body">
             <li class="article-detail-hashtagGroup__item">
-              <a href="#" class="article-detail-hashtag__link a-link a-tag__link">
+              <%= link_to "#", class: "article-detail-hashtag__link a-link a-tag__link" do %>
                 <div class="a-tag a-tag--small">
                   <div class="a-tag__label">
                     #今週のおすすめ
                   </div>
                 </div>
-              </a>
+              <% end %>
             </li>
             <li class="article-detail-hashtagGroup__item">
-              <a href="#" class="article-detail-hashtag__link a-link a-tag__link">
+              <%= link_to "#", class: "article-detail-hashtag__link a-link a-tag__link" do %>
                 <div class="a-tag a-tag--small">
                   <div class="a-tag__label">
                     #今週のおすすめ
                   </div>
                 </div>
-              </a>
+              <% end %>
             </li>
             <li class="article-detail-hashtagGroup__item">
-              <a href="#" class="article-detail-hashtag__link a-link a-tag__link">
+              <%= link_to "#", class: "article-detail-hashtag__link a-link a-tag__link" do %>
                 <div class="a-tag a-tag--small">
                   <div class="a-tag__label">
                     #今週のおすすめ
                   </div>
                 </div>
-              </a>
+              <% end %>
             </li>
           </ul>
         </div>
@@ -136,16 +136,16 @@
       <div class="article-detail-action">
         <div class="article-detail-action__btns">
           <div class="article-detail-action__btn">
-            <a href="#" class="a-link">
+            <%= link_to "#", class: "a-btn" do %>
               <%= icon("far", "heart", class: "a-icon a-icon--heart a-icon--medium")%>
-            </a>
+            <% end %>
           </div>
           <div class="article-detail-action__btn article-detail-action__btn--alert">
-            <a href="#" class="a-btn a-btn--alert a-btn article-detail-action__btn--link">
+            <%= link_to "#", class: "a-btn a-btn--alert a-btn article-detail-action__btn--link" do %>
               <div class="a-btn__inner a-btn__inner--small">
                 記事を報告する
               </div>
-            </a>
+            <% end %>
           </div>
         </div>
       </div>
@@ -155,11 +155,11 @@
             <span class="account-follow-sentense__authorName"><%= @article.user.nickname %></span>さんをフォローしますか？
           </p>
           <div class="account-follow-content__btn">
-            <a href="#" class="a-btn account-follow-content__btn--link">
+            <%= link_to "#", class: "a-btn account-follow-content__btn--link" do %>
               <div class="a-btn__inner">
                 フォロー
               </div>
-            </a>
+            <% end %>
           </div>
         </div>
       </div>
@@ -180,7 +180,7 @@
         <% @user_articles.each do |user_article| %>
           <div class="article-related-content__item">
             <section class="article-item-list">
-              <a href="#" class="a-link">
+              <%= link_to article_path(user_article), class: "a-link" do %>
                 <div class="article-item-list__body">
                   <div class="article-item-list__item">
                     <h3 class="article-item-list__title">
@@ -196,9 +196,9 @@
                         </span>
                       </div>
                       <div class="article-item-list__creatorName">
-                        <a href="#" class="a-link">
+                        <%= link_to "#", class: "a-link" do %><%# user#show %>
                           <%= user_article.user.nickname %>
-                        </a>
+                        <% end %>
                       </div>
                     </div>
                   </div>
@@ -208,7 +208,7 @@
                     <%= image_tag user_article.image, class: "a-image a-eyecatch__image"%>
                   </figure>
                 </div>
-              </a>
+              <% end %>
             </section>
           </div>
         <% end %>
@@ -217,16 +217,20 @@
     <div class="article-item-sibling">
       <nav class="article-item-sibling__nav">
         <div class="article-item-sibling__prev">
-          <a href="#" class="article-item-sibling__link article-item-sibling__link--prev a-link">
-            <%= icon("fas", "angle-left", class: "a-icon a-icon--prev a-icon--medium") %>
-            <div class="article-item-sibling__label">いいいいいいいいいいいいい</div>
-          </a>
+          <% if @article.previous.present? %>
+            <%= link_to article_path(@article.previous), class: "article-item-sibling__link article-item-sibling__link--prev a-link" do %>
+              <%= icon("fas", "angle-left", class: "a-icon a-icon--prev a-icon--medium") %>
+              <div class="article-item-sibling__label"><%= @article.previous.title %></div>
+            <% end %>
+          <% end %>
         </div>
         <div class="article-item-sibling__next">
-          <a href="#" class="article-item-sibling__link article-item-sibling__link--next a-link">
-            <div class="article-item-sibling__label">ううううううううううううう</div>
-            <%= icon("fas", "angle-right", class: "a-icon a-icon--next a-icon--medium") %>
-          </a>
+          <% if @article.next.present? %>
+            <%= link_to article_path(@article.next), class: "article-item-sibling__link article-item-sibling__link--next a-link" do %>
+              <div class="article-item-sibling__label"><%= @article.next.title %></div>
+              <%= icon("fas", "angle-right", class: "a-icon a-icon--next a-icon--medium") %>
+            <% end %>
+          <% end %>
         </div>
       </nav>
     </div>

@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  belongs_to :user
+  has_one_attached :image
 
   with_options presence: true do
     validates :image
@@ -21,6 +23,12 @@ class Article < ApplicationRecord
     buy_setting == true
   end
 
-  belongs_to :user
-  has_one_attached :image
+  def previous
+    Article.where("id > ?", self.id).order("id DESC").first
+  end
+
+  def next
+    Article.where("id < ?", self.id).order("id DESC").first
+  end
+
 end
