@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @articles = Article.includes(:user).sorted
+    @articles = Article.includes(:user).article_sorted
   end
 
   def new

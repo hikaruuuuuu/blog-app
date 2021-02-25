@@ -22,10 +22,10 @@ class Article < ApplicationRecord
     buy_setting == true
   end
 
-  scope :sorted, -> { order(created_at: :desc) }
+  scope :article_sorted, -> { order(created_at: :desc) }
 
   def not_selected_articles(post_user)
-    post_user.articles.where.not(id: self.id).sorted
+    post_user.articles.where.not(id: self.id).article_sorted
   end
 
   def previous(post_article)
