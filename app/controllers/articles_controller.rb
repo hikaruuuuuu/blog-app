@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @articles = Article.includes(:user).order(created_at: :desc)
+    @articles = Article.includes(:user).created_at_desc_sort
   end
 
   def new
@@ -16,6 +16,12 @@ class ArticlesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @article = Article.find(params[:id])
+    post_user = @article.user
+    @user_articles = @article.not_selected_articles(post_user)
   end
 
   private

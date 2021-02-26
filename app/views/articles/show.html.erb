@@ -4,46 +4,50 @@
     <article class="article-detail-item__body">
       <div class="article-detail-content">
         <figure class="article-eyecatch">
-          <%= image_tag "apple.jpg", class: "a-image article-eyecatch__image" %>
+          <%= image_tag @article.image, class: "a-image article-eyecatch__image" %>
         </figure>
         <div class="article-detail-content__body">
-          <h1 class="article-detail-content__title">ああああああああああああああああああああ</h1>
+          <h1 class="article-detail-content__title"><%= @article.title %></h1>
           <div class="article-detail-content__status">
             <div class="article-detail-content__like">
               <%= icon("far", "heart", class: "a-icon a-icon--heart a-icon--small") %>
               <span class="article-detail-content__likeCount">1</span>
             </div>
-            <div class="article-detail-content__priceBox">
-              <%= icon("fas", "yen-sign", class: "a-icon a-icon--price a-icon--small") %>
-              <span class="article-detail-content__price">110</span>
-            </div>
+            <% if @article.buy_setting == true %>
+              <div class="article-detail-content__priceBox">
+                <%= icon("fas", "yen-sign", class: "a-icon a-icon--price a-icon--small") %>
+                <span class="article-detail-content__price"><%= @article.price %></span>
+              </div>
+            <% end %>
           </div>
           <div class="article-detail-content__author">
             <div class="article-detail-content__info">
               <div class="article-detail-content__name">
-                <a href="#" class="a-link article-detail-cotent__link">
-                  ああああ
-                </a>
+                <%= link_to "#", class: "a-link article-detail-cotent__link" do %><%# user#showにとばす %>
+                  <%= @article.user.nickname %>
+                <% end %>
               </div>
               <span class="article-detail-content__date">
-                <time>2020/12/2317:00</time>
+                <time><%= time_ago_in_words(@article.created_at, include_seconds: true) %>前</time>
               </span>
             </div>
             <div class="article-detail-content__status">
               <div class="article-detail-content__actionList">
-                <a href="#" class="a-link article-detail-content__actionListLink" id="js-showPage-ellipse">
-                  <%= icon("fas", "ellipsis-h", class: "a-icon a-icon--ellipse") %>
-                </a>
+                <% if user_signed_in? && current_user.id == @article.user.id %>
+                  <%= link_to "#", class: "a-link article-detail-content__actionListLink", id: "js-showPage-ellipse" do %>
+                    <%= icon("fas", "ellipsis-h", class: "a-icon a-icon--ellipse") %>
+                  <% end %>
+                <% end %>
                 <div class="a-display a-display--arrow_top display_none" id="js-showPage-display">
                   <div class="a-display__body a-display__body--articleShowPage">
                     <ul class="a-display__basicLists">
                       <li class="a-display__basicListItem a-display__basicListItem--not">
-                        <a href="/articles/:id/edit" class="a-display__link">編集する</a>
+                        <%= link_to "編集する", "#", class: "a-display__link" %>
                       </li>
                       <li class="a-display__basicListItem">
-                        <a href="#" class="a-display__link">削除する</a>
+                        <%= link_to "削除する", "#", class: "a-display__link" %>
                       </li>
-                     </ul>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -51,76 +55,82 @@
           </div>
           <div class="article-detail-text">
             <div class="article-detail-text__body">
-              <p>ああああああああああああああああああああああああああ</p>
+              <% if @article.buy_setting == true && @article.user != current_user %>
+                <p><%= @article.text.truncate(30) %></p>
+              <% else %>
+                <p><%= @article.text %></p>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
-      <section class="article-pay-wall">
-        <div class="article-pay-wallHeader">
-          <h2 class="article-pay-wallHeader__title">
-            この続きは購入すると見れます！
-          </h2>
-        </div>
-        <section class="article-pay-wall__item">
-          <div class="article-paySaleWall">
-            <div class="article-paySaleWall__inner">
-              <div class="article-paySaleWall__content">
-                <div class="article-paySaleWall__itemDetail">
-                  <h3 class="article-paySaleWall__itemTitle">
-                    ああああああああああああああああああああ
-                  </h3>
-                  <div class="article-paySaleWall__itemName">
-                    ああああ
+      <% if @article.buy_setting == true && @article.user != current_user %>
+        <section class="article-pay-wall">
+          <div class="article-pay-wallHeader">
+            <h2 class="article-pay-wallHeader__title">
+              この続きは購入すると見れます！
+            </h2>
+          </div>
+          <section class="article-pay-wall__item">
+            <div class="article-paySaleWall">
+              <div class="article-paySaleWall__inner">
+                <div class="article-paySaleWall__content">
+                  <div class="article-paySaleWall__itemDetail">
+                    <h3 class="article-paySaleWall__itemTitle">
+                      <%= @article.text.truncate(30) %>
+                    </h3>
+                    <div class="article-paySaleWall__itemName">
+                      <%= @article.user.nickname %>
+                    </div>
+                    <p class="article-paySaleWall__itemPrice">
+                      <span><%= @article.price %></span>
+                    </p>
                   </div>
-                  <p class="article-paySaleWall__itemPrice">
-                    <span>100円</span>
-                  </p>
-                </div>
-                <div class="article-paySaleWall__itemImage">
-                  <%= image_tag "apple.jpg", class: "a-image article-paySaleWall__itemImageSrc" %>
-                </div>
-              </div>
-              <div class="article-paySaleWall__itemAction">
-                <a href="/articles/:article_id/user_deals" class="a-btn">
-                  <div class="a-btn__inner">
-                    購入する
+                  <div class="article-paySaleWall__itemImage">
+                    <%= image_tag @article.image, class: "a-image article-paySaleWall__itemImageSrc" %>
                   </div>
-                </a>
+                </div>
+                <div class="article-paySaleWall__itemAction">
+                  <%= link_to "#", class: "a-btn" do %>
+                    <div class="a-btn__inner">
+                      購入する
+                    </div>
+                  <% end %>
+                </div>
               </div>
             </div>
-          </div>
+          </section>
         </section>
-      </section>
+      <% end %>
       <div class="article-detail-hashtags">
         <div class="article-detail-hashtagGroup">
           <ul class="article-detail-hashtagGroup__body">
             <li class="article-detail-hashtagGroup__item">
-              <a href="#" class="article-detail-hashtag__link a-link a-tag__link">
+              <%= link_to "#", class: "article-detail-hashtag__link a-link a-tag__link" do %>
                 <div class="a-tag a-tag--small">
                   <div class="a-tag__label">
                     #今週のおすすめ
                   </div>
                 </div>
-              </a>
+              <% end %>
             </li>
             <li class="article-detail-hashtagGroup__item">
-              <a href="#" class="article-detail-hashtag__link a-link a-tag__link">
+              <%= link_to "#", class: "article-detail-hashtag__link a-link a-tag__link" do %>
                 <div class="a-tag a-tag--small">
                   <div class="a-tag__label">
                     #今週のおすすめ
                   </div>
                 </div>
-              </a>
+              <% end %>
             </li>
             <li class="article-detail-hashtagGroup__item">
-              <a href="#" class="article-detail-hashtag__link a-link a-tag__link">
+              <%= link_to "#", class: "article-detail-hashtag__link a-link a-tag__link" do %>
                 <div class="a-tag a-tag--small">
                   <div class="a-tag__label">
                     #今週のおすすめ
                   </div>
                 </div>
-              </a>
+              <% end %>
             </li>
           </ul>
         </div>
@@ -128,30 +138,30 @@
       <div class="article-detail-action">
         <div class="article-detail-action__btns">
           <div class="article-detail-action__btn">
-            <a href="#" class="a-link">
+            <%= link_to "#", class: "a-btn" do %>
               <%= icon("far", "heart", class: "a-icon a-icon--heart a-icon--medium")%>
-            </a>
+            <% end %>
           </div>
           <div class="article-detail-action__btn article-detail-action__btn--alert">
-            <a href="#" class="a-btn a-btn--alert a-btn article-detail-action__btn--link">
+            <%= link_to "#", class: "a-btn a-btn--alert a-btn article-detail-action__btn--link" do %>
               <div class="a-btn__inner a-btn__inner--small">
                 記事を報告する
               </div>
-            </a>
+            <% end %>
           </div>
         </div>
       </div>
       <div class="article-account-follow">
         <div class="account-follow-content">
           <p class="account-follow-sentense">
-            <span class="account-follow-sentense__authorName">ああああ</span>さんをフォローしますか？
+            <span class="account-follow-sentense__authorName"><%= @article.user.nickname %></span>さんをフォローしますか？
           </p>
           <div class="account-follow-content__btn">
-            <a href="#" class="a-btn account-follow-content__btn--link">
+            <%= link_to "#", class: "a-btn account-follow-content__btn--link" do %>
               <div class="a-btn__inner">
                 フォロー
               </div>
-            </a>
+            <% end %>
           </div>
         </div>
       </div>
@@ -166,123 +176,63 @@
     </article>
     <div class="article-related-content">
       <h2 class="article-related-content__title">
-        ああああさんのその他の記事
+        <%= @article.user.nickname %>のその他の記事
       </h2>
       <div class="article-related-content__body">
-        <div class="article-related-content__item">
-          <section class="article-item-list">
-            <a href="#" class="a-link">
-              <div class="article-item-list__body">
-                <div class="article-item-list__item">
-                  <h3 class="article-item-list__title">
-                    あああああああああああああああああああああああああああああああああああああ
-                  </h3>
-                  <div class="article-item-list__detail">
-                    <div class="article-item-list__like">
-                      <span class="article-item-list__icon">
-                        <%= icon("far", "heart" , class: "a-icon a-icon--heart a-icon--small") %>
-                      </span>
-                      <span class="article-item-list__likeCount">
-                        144
-                      </span>
-                    </div>
-                    <div class="article-item-list__creatorName">
-                      <a href="#" class="a-link">
-                        ああああ
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="article-item-list__eyecatch">
-                <figure class="article-item-list__eyecatchImage a-eyecatch a-eyecatch--medium">
-                  <%= image_tag "apple.jpg", class: "a-image a-eyecatch__image"%>
-                </figure>
-              </div>
-            </a>
-          </section>
-        </div>
-        <div class="article-related-content__item">
-          <section class="article-item-list">
-            <a href="#" class="a-link">
-              <div class="article-item-list__body">
-                <div class="article-item-list__item">
-                  <h3 class="article-item-list__title">
-                    あああああああああああああああああああああああああああああああああああああ
-                  </h3>
-                  <div class="article-item-list__detail">
-                    <div class="article-item-list__like">
-                      <span class="article-item-list__icon">
-                        <%= icon("far", "heart" , class: "a-icon a-icon--heart a-icon--small") %>
-                      </span>
-                      <span class="article-item-list__likeCount">
-                        144
-                      </span>
-                    </div>
-                    <div class="article-item-list__creatorName">
-                      <a href="#" class="a-link">
-                        ああああ
-                      </a>
+        <% @user_articles.each do |user_article| %>
+          <div class="article-related-content__item">
+            <section class="article-item-list">
+              <%= link_to article_path(user_article), class: "a-link" do %>
+                <div class="article-item-list__body">
+                  <div class="article-item-list__item">
+                    <h3 class="article-item-list__title">
+                      <%= user_article.title %>
+                    </h3>
+                    <div class="article-item-list__detail">
+                      <div class="article-item-list__like">
+                        <span class="article-item-list__icon">
+                          <%= icon("far", "heart" , class: "a-icon a-icon--heart a-icon--small") %>
+                        </span>
+                        <span class="article-item-list__likeCount">
+                          144
+                        </span>
+                      </div>
+                      <div class="article-item-list__creatorName">
+                        <%= link_to "#", class: "a-link" do %><%# user#show %>
+                          <%= user_article.user.nickname %>
+                        <% end %>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="article-item-list__eyecatch">
-                <figure class="article-item-list__eyecatchImage a-eyecatch a-eyecatch--medium">
-                  <%= image_tag "apple.jpg", class: "a-image a-eyecatch__image"%>
-                </figure>
-              </div>
-            </a>
-          </section>
-        </div>
-        <div class="article-related-content__item">
-          <section class="article-item-list">
-            <a href="#" class="a-link">
-              <div class="article-item-list__body">
-                <div class="article-item-list__item">
-                  <h3 class="article-item-list__title">
-                    あああああああああああああああああああああああああああああああああああああ
-                  </h3>
-                  <div class="article-item-list__detail">
-                    <div class="article-item-list__like">
-                      <span class="article-item-list__icon">
-                        <%= icon("far", "heart" , class: "a-icon a-icon--heart a-icon--small") %>
-                      </span>
-                      <span class="article-item-list__likeCount">
-                        144
-                      </span>
-                    </div>
-                    <div class="article-item-list__creatorName">
-                      <a href="#" class="a-link">
-                        ああああ
-                      </a>
-                    </div>
-                  </div>
+                <div class="article-item-list__eyecatch">
+                  <figure class="article-item-list__eyecatchImage a-eyecatch a-eyecatch--medium">
+                    <%= image_tag user_article.image, class: "a-image a-eyecatch__image"%>
+                  </figure>
                 </div>
-              </div>
-              <div class="article-item-list__eyecatch">
-                <figure class="article-item-list__eyecatchImage a-eyecatch a-eyecatch--medium">
-                  <%= image_tag "apple.jpg", class: "a-image a-eyecatch__image"%>
-                </figure>
-              </div>
-            </a>
-          </section>
-        </div>
+              <% end %>
+            </section>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="article-item-sibling">
       <nav class="article-item-sibling__nav">
         <div class="article-item-sibling__prev">
-          <a href="#" class="article-item-sibling__link article-item-sibling__link--prev a-link">
-            <%= icon("fas", "angle-left", class: "a-icon a-icon--prev a-icon--medium") %>
-            <div class="article-item-sibling__label">いいいいいいいいいいいいい</div>
-          </a>
+          <% if @article.previous(@article).present? %>
+            <%= link_to article_path(@article.previous(@article)), class: "article-item-sibling__link article-item-sibling__link--prev a-link" do %>
+              <%= icon("fas", "angle-left", class: "a-icon a-icon--prev a-icon--medium") %>
+              <div class="article-item-sibling__label"><%= @article.previous(@article).title %></div>
+            <% end %>
+          <% end %>
         </div>
         <div class="article-item-sibling__next">
-          <a href="#" class="article-item-sibling__link article-item-sibling__link--next a-link">
-            <div class="article-item-sibling__label">ううううううううううううう</div>
-            <%= icon("fas", "angle-right", class: "a-icon a-icon--next a-icon--medium") %>
-          </a>
+          <% if @article.next(@article).present? %>
+            <%= link_to article_path(@article.next(@article)), class: "article-item-sibling__link article-item-sibling__link--next a-link" do %>
+              <div class="article-item-sibling__label"><%= @article.next(@article).title %></div>
+              <%= icon("fas", "angle-right", class: "a-icon a-icon--next a-icon--medium") %>
+            <% end %>
+          <% end %>
         </div>
       </nav>
     </div>
