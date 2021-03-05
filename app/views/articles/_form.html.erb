@@ -64,9 +64,9 @@
         </div>            
         <footer class="modal-content__footer">
           <div class="modal-content__btnGroup">
-            <a href="#" class="a-btn a-btn--small modal-content__stopPosting" id="js-modal-cancel">
+            <%= link_to '#', class: "a-btn a-btn--small modal-content__stopPosting", id: "js-modal-cancel" do %>
               <div class="a-btn__inner a-btn__inner--small">キャンセル</div>
-            </a>
+            <% end %>
             <%= f.submit btn_value, class: "a-btn a-btn__inner--small a-btn--small a-btn--primary modal-content__posting" %>
           </div>
         </footer>
