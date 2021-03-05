@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_article, only: [:show, :edit, :update]
+  before_action :move_index, only: [:edit, :update]
 
   def index
     @articles = Article.includes(:user).created_at_desc_sort
@@ -19,17 +21,14 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
     post_user = @article.user
     @user_articles = @article.not_selected_articles(post_user)
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.new(article_params)
     if @article.update(article_params)
       redirect_to root_path
     else
@@ -41,6 +40,14 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :text, :price, :image, :buy_setting).merge(user_id: current_user.id)
+  end
+
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
+  def move_index
+    redirect_to root_path if @article.user != current_user
   end
 
 end
