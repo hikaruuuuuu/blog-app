@@ -29,7 +29,12 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
+    @article = Article.new(article_params)
+    if @article.update(article_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   private
