@@ -24,6 +24,14 @@ class ArticlesController < ApplicationController
     @user_articles = @article.not_selected_articles(post_user)
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+  end
+
   private
 
   def article_params
