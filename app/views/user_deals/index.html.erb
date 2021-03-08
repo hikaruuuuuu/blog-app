@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <form class="register-form register-form--purchase">
+    <%= form_with class: "register-form register-form--purchase" do |f| %>
       <div class="form-container__titleGroup">
         <h2 class="form-container__title">購入情報を入力</h2>
       </div>
@@ -86,7 +86,7 @@
             <label class="register-form-group__label">都道府県</label>
             <span class="register-form-group__require">必須</span>
           </div>
-           <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {},{class:"register-form-group__selectBox register-form-group__selectBox--prefecture", id:"item-prefecture"}) %>
+          <%# <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {},{class:"register-form-group__selectBox register-form-group__selectBox--prefecture", id:"item-prefecture"}) %> %>
         </div>
         <div class="register-form-group">
           <div class="register-form-group__labelGroup">
@@ -117,10 +117,10 @@
           <input name="hoge" type="text" class= "register-form-group__textField register-form-group__textField--address", placeholder="例) 08012345678">
         </div>
         <div class="register-form-submit">
-           <input type="submit" value="購入する" class= "register-form-submit__btn a-btn a-btn--primary">
+          <input type="submit" value="購入する" class= "register-form-submit__btn a-btn a-btn--primary">
           <a href="#" class="register-form-submit__btn register-form-submit__btn--return a-btn">戻る</a>
         </div>
       </div>
-    </form>
+    <% end %>
   </section>
 </main>
