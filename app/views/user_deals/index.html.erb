@@ -86,7 +86,7 @@
             <label class="register-form-group__label">都道府県</label>
             <span class="register-form-group__require">必須</span>
           </div>
-          <%# <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {},{class:"register-form-group__selectBox register-form-group__selectBox--prefecture", id:"item-prefecture"}) %> %>
+          <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {},{class:"register-form-group__selectBox register-form-group__selectBox--prefecture", id:"item-prefecture"}) %>
         </div>
         <div class="register-form-group">
           <div class="register-form-group__labelGroup">
