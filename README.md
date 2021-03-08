@@ -43,7 +43,7 @@
 - belongs_to :user
 - belongs_to :article
 
-## buys table
+## user_deals table
 
 | Column  | Type       | Options                        |
 |---------|------------|--------------------------------|
@@ -71,3 +71,6 @@
 | building        | string     |                                |
 | phone_number    | string     | null: false                    |
 | buy             | references | null: false, foreign_key: true | 
+
+### Association
+- belongs_to :user_deal
