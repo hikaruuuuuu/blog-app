@@ -3,4 +3,4 @@ class Address < ApplicationRecord
 end
 
 
-テスト
+pushしたあとのコミットメッセージの編集のテスト
