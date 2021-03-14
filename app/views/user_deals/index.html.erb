@@ -5,14 +5,14 @@
       <div class="article-purchase-detail__content">
         <div class="article-purchase-detail__info">
           <h3 class="article-purchase-detail__title">
-            あああああああああ
+            <%= @article.title %>
           </h3>
           <div class="article-purchase-detail__price">
-            100円
+            <%= @article.price %>円
           </div>
         </div>
         <div class="article-purchase-detail__image">
-          <%= image_tag "apple.jpg", class: "article-purchase-detail__imageSrc" %>
+          <%= image_tag @article.image, class: "article-purchase-detail__imageSrc" %>
         </div>
       </div>
     </div>

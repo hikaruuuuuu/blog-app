@@ -1,5 +1,6 @@
 class UserDealsController < ApplicationController
   def index
+    @article = Article.find(params[:article_id])
   end
 
   def create
