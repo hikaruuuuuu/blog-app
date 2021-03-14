@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <%= form_with model: @order, url: article_user_deals_path, class: "register-form register-form--purchase" do |f| %>
+    <%= form_with model: @order, url: article_user_deals_path, class: "register-form register-form--purchase", local: true do |f| %>
       <div class="form-container__titleGroup">
         <h2 class="form-container__title">購入情報を入力</h2>
       </div>
