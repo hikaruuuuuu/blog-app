@@ -1,20 +1,24 @@
 class UserDealsController < ApplicationController
   def index
     @article = Article.find(params[:article_id])
+    @order = Order.new
   end
 
   def create
-    user_deal = UserDeal.create(user_deal_params)
-    Address.create(address_params(user_deal))
+    @article = Article.find(params[:article_id])
+    @order = Order.new(order_params)
+    if @order.valid?
+      @order.save
+      redirect_to article_path(@article)
+    else
+      render :index
+    end
   end
 
   private
 
-  def user_deal_params
-    params.permit(:article_id).merge(user_id: current_user.id)
+  def order_params
+    params.require(:order).permit(:f_name, :l_name, :f_name_kana, :l_name_kana, :postal_code, :prefecture_id, :city, :building_number, :building_name, :phone_number).merge(user_id: current_user.id, article_id: params[:article_id])
   end
 
-  def address_params(user_deal)
-    params.permit(:f_name, :l_name, :f_name_kana, :l_name_kana, :postal_code, :prefecture_id, :city, :building_number, :building_name, :phone_number).merge(user_deal_id: user_deal.id)
-  end
 end
