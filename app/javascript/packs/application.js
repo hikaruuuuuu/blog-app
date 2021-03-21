@@ -8,6 +8,7 @@ require("@rails/activestorage").start()
 require("../new_article_modal")
 require("../a_display")
 require("../preview")
+require("../card")
 require("channels")
 
 

@@ -1,6 +1,7 @@
 <%= render "shared/another_header" %>
 <main class="form-group">
   <section class="form-container form-container--purchaseForm">
+
     <div class="article-purchase-detail">
       <div class="article-purchase-detail__content">
         <div class="article-purchase-detail__info">
@@ -16,7 +17,8 @@
         </div>
       </div>
     </div>
-    <%= form_with model: @order, url: article_user_deals_path, class: "register-form register-form--purchase", local: true do |f| %>
+
+    <%= form_with model: @order, url: article_user_deals_path, class: "register-form register-form--purchase", id: "purchase-form", local: true do |f| %>
       <div class="form-container__titleGroup">
         <h2 class="form-container__title">購入情報を入力</h2>
       </div>
@@ -122,5 +124,6 @@
         </div>
       </div>
     <% end %>
+
   </section>
 </main>
