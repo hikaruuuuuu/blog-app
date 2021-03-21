@@ -23,7 +23,9 @@ class ArticlesController < ApplicationController
   def show
     post_user = @article.user
     @user_articles = @article.not_selected_articles(post_user)
-    @sold_status = current_user.user_deals.where(article_id: @article.id).present?
+    if user_signed_in?
+      @sold_status = current_user.user_deals.where(article_id: @article.id).present?
+    end
   end
 
   def edit

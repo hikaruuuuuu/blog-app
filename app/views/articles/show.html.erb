@@ -55,53 +55,52 @@
           </div>
           <div class="article-detail-text">
             <div class="article-detail-text__body">
-              <% if @sold_status == true || @article.user == current_user %>
+              <% if @sold_status == true || @article.user == current_user || @article.buy_setting == false %>
                 <p><%= @article.text %></p>
               <% else %>
                 <p><%= @article.text.truncate(30) %></p>
+                <section class="article-pay-wall">
+                  <div class="article-pay-wallHeader">
+                    <h2 class="article-pay-wallHeader__title">
+                      この続きは購入すると見れます！
+                    </h2>
+                  </div>
+                  <section class="article-pay-wall__item">
+                    <div class="article-paySaleWall">
+                      <div class="article-paySaleWall__inner">
+                        <div class="article-paySaleWall__content">
+                          <div class="article-paySaleWall__itemDetail">
+                            <h3 class="article-paySaleWall__itemTitle">
+                              <%= @article.text.truncate(30) %>
+                            </h3>
+                            <div class="article-paySaleWall__itemName">
+                              <%= @article.user.nickname %>
+                            </div>
+                            <p class="article-paySaleWall__itemPrice">
+                              <span><%= @article.price %></span>
+                            </p>
+                          </div>
+                          <div class="article-paySaleWall__itemImage">
+                            <%= image_tag @article.image, class: "a-image article-paySaleWall__itemImageSrc" %>
+                          </div>
+                        </div>
+                        <div class="article-paySaleWall__itemAction">
+                          <%= link_to article_user_deals_path(@article), class: "a-btn" do %>
+                            <div class="a-btn__inner">
+                              購入する
+                            </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </section>
               <% end %>
             </div>
           </div>
         </div>
       </div>
-      <% if @article.buy_setting == true && @article.user != current_user && @sold_status == false %>
-        <section class="article-pay-wall">
-          <div class="article-pay-wallHeader">
-            <h2 class="article-pay-wallHeader__title">
-              この続きは購入すると見れます！
-            </h2>
-          </div>
-          <section class="article-pay-wall__item">
-            <div class="article-paySaleWall">
-              <div class="article-paySaleWall__inner">
-                <div class="article-paySaleWall__content">
-                  <div class="article-paySaleWall__itemDetail">
-                    <h3 class="article-paySaleWall__itemTitle">
-                      <%= @article.text.truncate(30) %>
-                    </h3>
-                    <div class="article-paySaleWall__itemName">
-                      <%= @article.user.nickname %>
-                    </div>
-                    <p class="article-paySaleWall__itemPrice">
-                      <span><%= @article.price %></span>
-                    </p>
-                  </div>
-                  <div class="article-paySaleWall__itemImage">
-                    <%= image_tag @article.image, class: "a-image article-paySaleWall__itemImageSrc" %>
-                  </div>
-                </div>
-                <div class="article-paySaleWall__itemAction">
-                  <%= link_to article_user_deals_path(@article), class: "a-btn" do %>
-                    <div class="a-btn__inner">
-                      購入する
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </section>
-        </section>
-      <% end %>
+
       <div class="article-detail-hashtags">
         <div class="article-detail-hashtagGroup">
           <ul class="article-detail-hashtagGroup__body">
