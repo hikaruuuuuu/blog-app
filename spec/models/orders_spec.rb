@@ -10,7 +10,6 @@ RSpec.describe Order, type: :model do
 
     context '購入できる' do
       it 'すべて正しく入力できている' do
-        binding.pry
         expect(@order).to be_valid
       end
     end
