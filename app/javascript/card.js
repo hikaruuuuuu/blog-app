@@ -18,6 +18,15 @@ const pay = () => {
         const tokenAddForm = document.getElementById("purchase-form");
         const tokenHtml = `<input value=${token} name='token' type='hidden'>`
         tokenAddForm.insertAdjacentHTML("beforeend", tokenHtml);
+      } else {
+        alert(
+          `
+          カード登録に失敗しました。
+          エラー：${response.error.message}
+          カード情報：
+          {number: ${card.number} cvc: ${card.cvc} month: ${card.exp_month} year: ${card.exp_year}}
+          `
+        );
       };
       document.getElementById("order_number").removeAttribute("name");
       document.getElementById("order_cvc").removeAttribute("name");

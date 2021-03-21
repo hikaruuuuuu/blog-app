@@ -1,6 +1,6 @@
 class Order
   include ActiveModel::Model
-  attr_accessor :f_name, :l_name, :f_name_kana, :l_name_kana, :postal_code, :prefecture_id, :city, :building_number, :building_name, :phone_number, :article_id, :user_id, :user_deal_id
+  attr_accessor :f_name, :l_name, :f_name_kana, :l_name_kana, :postal_code, :prefecture_id, :city, :building_number, :building_name, :phone_number, :article_id, :user_id, :user_deal_id, :token
 
   def save
     user_deal = UserDeal.create(article_id: article_id, user_id: user_id)

@@ -19,7 +19,7 @@ class UserDealsController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:f_name, :l_name, :f_name_kana, :l_name_kana, :postal_code, :prefecture_id, :city, :building_number, :building_name, :phone_number).merge(user_id: current_user.id, article_id: params[:article_id]. token: params[:token])
+    params.require(:order).permit(:f_name, :l_name, :f_name_kana, :l_name_kana, :postal_code, :prefecture_id, :city, :building_number, :building_name, :phone_number).merge(user_id: current_user.id, article_id: params[:article_id], token: params[:token])
   end
 
 end
