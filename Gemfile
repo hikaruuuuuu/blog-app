@@ -65,3 +65,5 @@ gem 'font-awesome-sass'
 gem 'rails-i18n'
 gem 'image_processing', '~> 1.2'
 gem 'active_hash'
+
+gem 'payjp'
