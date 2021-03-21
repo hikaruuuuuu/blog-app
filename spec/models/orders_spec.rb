@@ -119,12 +119,12 @@ RSpec.describe Order, type: :model do
       it 'phone_numberが全角' do
         @order.phone_number = "０９０１２３４１２３４"
         @order.valid?
-        expect(@order.errors.full_messages).to include("電話番号は、半角数字で入力してください")
+        expect(@order.errors.full_messages).to include("電話番号は、半角数字のみで入力してください")
       end
       it 'phone_numberが数字でない' do
         @order.phone_number = "aaaaaaaaaaa"
         @order.valid?
-        expect(@order.errors.full_messages).to include("電話番号は、半角数字で入力してください")
+        expect(@order.errors.full_messages).to include("電話番号は、半角数字のみで入力してください")
       end
       it 'phone_numberが11桁以上' do
         @order.phone_number = "090123123123123"

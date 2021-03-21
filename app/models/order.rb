@@ -19,7 +19,7 @@ class Order
     validates :city
     validates :building_number
     validates :building_name
-    validates :phone_number, format: { with: /\d/, message: 'は、半角数字で入力してください', allow_blank: true },length: { maximum: 11, message: 'は、11桁以内で入力してください', allow_blank: true }
+    validates :phone_number, format: { with: /\d/, message: 'は、半角数字のみで入力してください', allow_blank: true },length: { maximum: 11, message: 'は、11桁以内で入力してください', allow_blank: true }
     validates :article_id
     validates :user_id
     validates :token
