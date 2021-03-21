@@ -1,7 +1,10 @@
 class UserDealsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @article = Article.find(params[:article_id])
     @order = Order.new
+    redirect_to article_path(@article) if current_user == @article.user || current_user.user_deals.where(article_id: @article.id).length != 0
   end
 
   def create
@@ -10,6 +13,7 @@ class UserDealsController < ApplicationController
     if @order.valid?
       @order.save
       pay_article
+      @sold_status = current_user.user_deals.where(article_id: @article.id).present?
       redirect_to article_path(@article)
     else
       render :index

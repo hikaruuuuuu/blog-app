@@ -55,16 +55,16 @@
           </div>
           <div class="article-detail-text">
             <div class="article-detail-text__body">
-              <% if @article.buy_setting == true && @article.user != current_user %>
-                <p><%= @article.text.truncate(30) %></p>
-              <% else %>
+              <% if @sold_status == true || @article.user == current_user %>
                 <p><%= @article.text %></p>
+              <% else %>
+                <p><%= @article.text.truncate(30) %></p>
               <% end %>
             </div>
           </div>
         </div>
       </div>
-      <% if @article.buy_setting == true && @article.user != current_user %>
+      <% if @article.buy_setting == true && @article.user != current_user && @sold_status == false %>
         <section class="article-pay-wall">
           <div class="article-pay-wallHeader">
             <h2 class="article-pay-wallHeader__title">
