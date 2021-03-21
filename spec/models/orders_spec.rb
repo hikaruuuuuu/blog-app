@@ -14,5 +14,10 @@ RSpec.describe Order, type: :model do
         expect(@order).to be_valid
       end
     end
+
+    context '購入できない' do
+      
+    end
+
   end
 end
