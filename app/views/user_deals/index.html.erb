@@ -19,6 +19,7 @@
     </div>
 
     <%= form_with model: @order, url: article_user_deals_path, class: "register-form register-form--purchase", id: "purchase-form", local: true do |f| %>
+      <%= render "shared/error_messages", model: f.object %>
       <div class="form-container__titleGroup">
         <h2 class="form-container__title">購入情報を入力</h2>
       </div>
