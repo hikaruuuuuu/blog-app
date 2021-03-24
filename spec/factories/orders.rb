@@ -10,7 +10,6 @@ FactoryBot.define do
     building_number { Faker::Address.building_number }
     building_name   { Gimei.town.kanji  }
     phone_number    { Faker::Number.leading_zero_number(digits: 11) }
-    # user_deal_id    {  }
     token           { Faker::Number.hexadecimal(digits: 10) }
   end
 end

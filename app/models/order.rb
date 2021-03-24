@@ -8,7 +8,7 @@ class Order
     validates :l_name
   end
 
-  with_options presence: true, format: { with: /\A[ぁ-ん]+\z/, message: 'は、ひらがなで入力してください', allow_blank: true } do
+  with_options presence: true, format: { with: /\A[ぁ-んー]+\z/, message: 'は、ひらがなで入力してください', allow_blank: true } do
     validates :f_name_kana
     validates :l_name_kana
   end
@@ -18,7 +18,6 @@ class Order
     validates :prefecture_id, numericality: { other_than: 0, message: 'を選択してください' }
     validates :city
     validates :building_number
-    validates :building_name
     validates :phone_number, format: { with: /\d/, message: 'は、半角数字のみで入力してください', allow_blank: true },length: { maximum: 11, message: 'は、11桁以内で入力してください', allow_blank: true }
     validates :article_id
     validates :user_id

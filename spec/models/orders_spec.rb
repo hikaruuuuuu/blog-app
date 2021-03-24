@@ -13,6 +13,10 @@ RSpec.describe Order, type: :model do
       it 'すべて正しく入力できている' do
         expect(@order).to be_valid
       end
+      it 'building_nameが空' do
+        @order.building_name = ""
+        expect(@order).to be_valid
+      end
     end
 
     context '購入できない' do
@@ -105,11 +109,6 @@ RSpec.describe Order, type: :model do
         @order.building_number = ""
         @order.valid?
         expect(@order.errors.full_messages).to include("番地が入力されていません")
-      end
-      it 'building_nameが空' do
-        @order.building_name = ""
-        @order.valid?
-        expect(@order.errors.full_messages).to include("建物が入力されていません")
       end
       it 'phone_numberが空' do
         @order.phone_number = ""
