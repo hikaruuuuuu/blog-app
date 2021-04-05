@@ -29,3 +29,18 @@ ja:
       over_x_years:
         one:   "1年以上"
         other: "%{count}年以上"
+
+  activemodel:
+    attributes:
+      order:
+        f_name: 名前
+        l_name: 名字
+        f_name_kana: 名前のふりがな
+        l_name_kana: 名字のふりがな
+        token: トークン
+        postal_code: 郵便番号
+        prefecture_id: 都道府県
+        city: 市区町村
+        building_number: 番地
+        building_name: 建物
+        phone_number: 電話番号

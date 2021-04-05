@@ -10,4 +10,5 @@ class User < ApplicationRecord
   end
 
   has_many :articles
+  has_many :user_deals
 end

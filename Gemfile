@@ -55,6 +55,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'gimei'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -64,3 +65,6 @@ gem 'devise'
 gem 'font-awesome-sass'
 gem 'rails-i18n'
 gem 'image_processing', '~> 1.2'
+gem 'active_hash'
+
+gem 'payjp'

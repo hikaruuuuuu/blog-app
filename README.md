@@ -43,7 +43,7 @@
 - belongs_to :user
 - belongs_to :article
 
-## buys table
+## user_deals table
 
 | Column  | Type       | Options                        |
 |---------|------------|--------------------------------|
@@ -64,10 +64,13 @@
 | l_name          | string     | null: false                    |
 | f_name_kana     | string     | null: false                    |
 | l_name_kana     | string     | null: false                    |
-| postalcode      | string     | null: false                    |
+| postal_code      | string     | null: false                    |
 | prefecture_id   | integer    | null: false                    |active_hash
 | city            | string     | null: false                    |
 | building_number | string     | null: false                    |
-| building        | string     |                                |
+| building_name        | string     |                                |
 | phone_number    | string     | null: false                    |
-| buy             | references | null: false, foreign_key: true | 
+| user_deal             | references | null: false, foreign_key: true | 
+
+### Association
+- belongs_to :user_deal
